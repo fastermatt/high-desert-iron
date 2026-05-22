@@ -1080,34 +1080,34 @@ footer {
 //  PHOTO LIBRARY — Wikimedia Commons + confirmed listing photos
 //  Format: Special:FilePath redirects to actual CDN file
 // ═══════════════════════════════════════════════════════════════════════
-const WM = (f) => `https://upload.wikimedia.org/wikipedia/commons/${f}`;
-
+// ── CONFIRMED WORKING PHOTO URLS (API-verified Wikimedia + scraped listing photos) ──
 const PHOTOS = {
-  // Chevrolet C/K Square Body (3rd gen, 1973–1987)
-  ck_73_sq:    WM('a/a7/1977_Chevrolet_C10_pickup_truck.jpg'),
-  ck_sq_orange: WM('a/ab/1985_Chevrolet_C10_pickup_truck%2C_orange%2C_front_8.28.12.jpg'),
-  ck_72_early:  WM('1/18/1972_Chevrolet_C10_Cheyenne_pickup%2C_front_8.28.12.jpg'),
-  ck_sq_late:   WM('a/ab/1985_Chevrolet_C10_pickup_truck%2C_orange%2C_front_8.28.12.jpg'),
-  // Chevy K5 Blazer
-  k5_blazer:   WM('7/70/1985-Chevrolet-K5-Blazer.jpg'),
-  // Chevy S10
-  s10:         WM('b/b2/1988_Chevrolet_S-10_pickup_truck.jpg'),
-  // Ford F-100 / F-Series 2nd gen (1967-1972)
-  ford_f100:   WM('2/21/1970_Ford_F-100_Ranger_pickup%2C_front_left.jpg'),
-  // Ford F-150 (1975-1979 dentside)
-  ford_f150:   WM('5/5d/1977_Ford_F-150_4WD_pickup%2C_orange%2C_front_7.29.16.jpg'),
-  // Ford Bronco 1st gen (1966-1977)
-  bronco_1st:  WM('7/72/1966_Ford_Bronco_%28front%29.jpg'),
-  // Ford Bronco full size (1978-1996)
-  bronco_full: WM('3/33/1990_Ford_Bronco%2C_front_right%2C_6.22.12.jpg'),
-  // IH Scout II (1971-1980)
-  scout_ii:    WM('8/8f/1977_International_Harvester_Scout_II%2C_front_left.jpg'),
-  // IH Scout 800 (1966-1971)
-  scout_800:   WM('d/d8/International_Scout_800A.jpg'),
-  // IH Travelall
-  travelall:   WM('5/5a/1968_International_Travelall.jpg'),
-  // GMC C/K
-  gmc_ck:      WM('4/4b/1971_GMC_C15_Fenderside_pickup.jpg'),
+  // Chevrolet C/K early (pre-1973) — confirmed Wikimedia
+  ck_early:    'https://upload.wikimedia.org/wikipedia/commons/f/f9/1970_Chevrolet_C10_Pickup_%28cropped%29.jpg',
+  // Chevrolet C/K Square Body (1972-1987) — confirmed Wikimedia
+  ck_sq:       'https://upload.wikimedia.org/wikipedia/commons/4/43/1972_Chevrolet_C10_pickup_truck_%2816363333990%29.jpg',
+  // Chevy K5 Blazer (1979) — confirmed Wikimedia
+  k5_blazer:   'https://upload.wikimedia.org/wikipedia/commons/a/a5/1979_Chevrolet_K5_Blazer_Cheyenne.jpg',
+  // Chevy K5 Blazer (1988 hardtop) — confirmed Wikimedia
+  k5_blazer_88:'https://upload.wikimedia.org/wikipedia/commons/1/1d/1988_Chevrolet_Blazer_C10_Hardtop.jpg',
+  // Chevy S10 — confirmed Wikimedia
+  s10:         'https://upload.wikimedia.org/wikipedia/commons/5/5f/ChevroletS10-Carilo-06280.jpg',
+  // Ford F-100 (1970) — confirmed Wikimedia
+  ford_f100:   'https://upload.wikimedia.org/wikipedia/commons/8/8c/Ford_F-100_1970_%2815161729615%29.jpg',
+  // Ford F-150 (1987 XLT Lariat) — confirmed Wikimedia
+  ford_f150:   'https://upload.wikimedia.org/wikipedia/commons/4/47/1987_F-150_XLT_Lariat_Supercab_in_Desert_Tan_Metallic%26_Light_Chestnut.jpg',
+  // Ford Bronco 1st gen (1966) — confirmed Wikimedia
+  bronco_1st:  'https://upload.wikimedia.org/wikipedia/commons/6/67/1966_Ford_Bronco_%286098504018%29.jpg',
+  // Ford Bronco full size — scraped Craigslist listing photo
+  bronco_full: 'https://images.craigslist.org/00L0L_bUEQ9u6FJHx_0CI0t2_1200x900.jpg',
+  // IH Scout II (1978 Scout Traveler — same era) — confirmed Wikimedia
+  scout_ii:    'https://upload.wikimedia.org/wikipedia/commons/f/fd/1978_International_Harvester_Scout_Traveler_4x4_diesel_%282022_Portersville_Summer_Steam_Show%29.jpg',
+  // IH Scout 800 (1965, red) — confirmed Wikimedia
+  scout_800:   'https://upload.wikimedia.org/wikipedia/commons/8/8c/1965_International_Scout_800_in_Red%2C_front_left_%28Greenwich_2021%29.jpg',
+  // IH Travelall (1971) — confirmed Wikimedia
+  travelall:   'https://upload.wikimedia.org/wikipedia/commons/1/1a/1971_International_Harvester_Travelall_1010.jpg',
+  // GMC C/K — same GM platform as C10, confirmed Wikimedia
+  gmc_ck:      'https://upload.wikimedia.org/wikipedia/commons/f/f9/1970_Chevrolet_C10_Pickup_%28cropped%29.jpg',
 };
 
 // ═══════════════════════════════════════════════════════════════════════
@@ -1125,25 +1125,25 @@ const TRUCKS = [
     price:10300, est_low:9000, est_high:18000, mi:"133K", ac:"Unknown", running:"Yes",
     cond:"Good (assumed)", loc:"Albuquerque, NM", src:"Facebook Marketplace",
     url:"https://www.facebook.com/marketplace/item/26297128556606049/",
-    img:PHOTOS.ck_73_sq, credit:"Wikimedia Commons" },
+    img:PHOTOS.ck_sq, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1976, model:"C20 Square Body", trim:"3/4-Ton",
     price:8000, est_low:9000, est_high:18000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Unknown", loc:"Albuquerque, NM", src:"Facebook Marketplace",
     url:"https://www.facebook.com/marketplace/item/739940005368118/",
-    img:PHOTOS.ck_73_sq, credit:"Wikimedia Commons" },
+    img:PHOTOS.ck_sq, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1977, model:"K30", trim:"1-Ton 4x4",
     price:16000, est_low:9000, est_high:18000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Unknown", loc:"Albuquerque, NM", src:"Facebook Marketplace",
     url:"https://www.facebook.com/marketplace/item/4269184980010974/",
-    img:PHOTOS.ck_73_sq, credit:"Wikimedia Commons" },
+    img:PHOTOS.ck_sq, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1985, model:"C3500 Silverado", trim:"Crew Cab",
     price:15000, est_low:9000, est_high:18000, mi:"85K", ac:"Unknown", running:"Yes",
     cond:"Good", loc:"Albuquerque, NM", src:"Facebook Marketplace",
     url:"https://www.facebook.com/marketplace/item/1290171676307009/",
-    img:PHOTOS.ck_sq_orange, credit:"Wikimedia Commons" },
+    img:PHOTOS.ck_sq, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1988, model:"S10", trim:"Mini-Truck",
     price:10000, est_low:3000, est_high:9000, mi:"Unknown", ac:"Unknown", running:"Unknown",
@@ -1156,56 +1156,59 @@ const TRUCKS = [
     price:32000, est_low:18000, est_high:35000, mi:"4.4K*", ac:"YES", running:"YES",
     cond:"Excellent — Restored", loc:"Albuquerque, NM", src:"Craigslist",
     url:"https://albuquerque.craigslist.org/cto/d/albuquerque-1973-chevy-k10/7929440729.html",
-    img:PHOTOS.ck_72_early, credit:"Wikimedia Commons" },
+    img:'https://images.craigslist.org/00h0h_dsW92jr4b42_0CI0t2_1200x900.jpg',
+    credit:"Craigslist" },
 
   { make:"Chevrolet", year:1977, model:"C-10", trim:"Dealer Build — 350 V8",
     price:35000, est_low:9000, est_high:18000, mi:"76K", ac:"Unknown", running:"YES",
     cond:"Like New — Dealer", loc:"Albuquerque, NM", src:"Craigslist",
     url:"https://albuquerque.craigslist.org/ctd/d/albuquerque-chevrolet-10-pim0362a/7933562338.html",
-    img:PHOTOS.ck_73_sq, credit:"Wikimedia Commons" },
+    img:'https://images.craigslist.org/00F0F_dM9awC5cwNv_06s03d_1200x900.jpg',
+    credit:"Craigslist" },
 
   { make:"Chevrolet", year:1983, model:"Silverado C-10", trim:"Not Running — Has AC",
     price:6000, est_low:9000, est_high:18000, mi:"Unknown", ac:"YES", running:"NO",
     cond:"Not Running — AC Works", loc:"Albuquerque, NM", src:"Craigslist",
     url:"https://albuquerque.craigslist.org/cto/d/albuquerque-1983-chevy-silverado-10/7935230789.html",
-    img:PHOTOS.ck_sq_orange, credit:"Wikimedia Commons" },
+    img:'https://images.craigslist.org/00M0M_96GCwyKKeMV_0dq0t2_1200x900.jpg',
+    credit:"Craigslist" },
 
   { make:"Chevrolet", year:1972, model:"C10", trim:"Survivor",
     price:15000, est_low:9000, est_high:18000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Survivor", loc:"Rio Rancho, NM", src:"Craigslist",
     url:"https://albuquerque.craigslist.org/search/cta?query=1972+c10",
-    img:PHOTOS.ck_72_early, credit:"Wikimedia Commons" },
+    img:PHOTOS.ck_early, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1977, model:"K10", trim:"Short Bed 4x4",
     price:5299, est_low:9000, est_high:18000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Unknown", loc:"Albuquerque, NM", src:"Craigslist",
     url:"https://albuquerque.craigslist.org/search/cta?query=k10+1977",
-    img:PHOTOS.ck_73_sq, credit:"Wikimedia Commons" },
+    img:PHOTOS.ck_sq, credit:"Wikimedia Commons" },
 
   // ── Chevrolet / AutoTrader + Specialty ────────────────────────────
   { make:"Chevrolet", year:1974, model:"C/K Truck", trim:"Only 5,495 Miles",
     price:19000, est_low:8000, est_high:18000, mi:"5,495", ac:"Unknown", running:"Yes",
     cond:"Very Low Miles", loc:"Albuquerque 87109", src:"AutoTrader Classics",
     url:"https://classics.autotrader.com/classic-cars/1974/chevrolet/c_k_trucks/100754335",
-    img:PHOTOS.ck_72_early, credit:"Wikimedia Commons" },
+    img:PHOTOS.ck_early, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1985, model:"C10/C1500", trim:"2WD Regular Cab",
     price:32995, est_low:18000, est_high:35000, mi:"25,397", ac:"Unknown", running:"Yes",
     cond:"Good / Excellent", loc:"Near Albuquerque", src:"AutoTrader Classics",
     url:"https://classics.autotrader.com/classic-cars/1985/chevrolet/c_k_truck/102752593",
-    img:PHOTOS.ck_sq_orange, credit:"Wikimedia Commons" },
+    img:PHOTOS.ck_sq, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1987, model:"C/K Truck Silverado", trim:"",
     price:49500, est_low:18000, est_high:35000, mi:"52,540", ac:"Unknown", running:"Yes",
     cond:"Excellent", loc:"Near Albuquerque", src:"AutoTrader Classics",
     url:"https://classics.autotrader.com/classic-cars/1987/chevrolet/c_k_truck/102637871",
-    img:PHOTOS.ck_sq_late, credit:"Wikimedia Commons" },
+    img:PHOTOS.ck_sq, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1987, model:"C10 Shortbed", trim:"ICE COLD AC — Restored",
     price:null, est_low:18000, est_high:35000, mi:"~1.9K*", ac:"YES YES", running:"YES",
     cond:"Excellent — Restored", loc:"Scottsdale AZ (~290 mi)", src:"SMClassicCars",
     url:"https://smclassiccars.com/chevrolet/240160-1987-chevrolet-c10-shortbed-silverado-trim-350ci-dual-tanks-cold-ac-lowered.html",
-    img:PHOTOS.ck_sq_late, credit:"Wikimedia Commons" },
+    img:PHOTOS.ck_sq, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1983, model:"K5 Blazer Scottsdale", trim:"Frame-Off — LS Swap — All New AC",
     price:null, est_low:22000, est_high:50000, mi:"50 since restore", ac:"YES", running:"YES",
@@ -1219,13 +1222,13 @@ const TRUCKS = [
     price:2500, est_low:5000, est_high:10000, mi:"123K", ac:"Unknown", running:"Unknown",
     cond:"Verify — Low Price", loc:"Albuquerque, NM", src:"Facebook Marketplace",
     url:"https://www.facebook.com/marketplace/item/980245228190435/",
-    img:PHOTOS.bronco_full, credit:"Wikimedia Commons" },
+    img:PHOTOS.bronco_full, credit:"Craigslist" },
 
   { make:"Ford", year:1988, model:"Bronco Wildtrak", trim:"4x4",
     price:2250, est_low:5000, est_high:10000, mi:"123K", ac:"Unknown", running:"Unknown",
     cond:"Verify — Lowest Price Found", loc:"Albuquerque, NM", src:"Facebook Marketplace",
     url:"https://www.facebook.com/marketplace/item/1640014093820240/",
-    img:PHOTOS.bronco_full, credit:"Wikimedia Commons" },
+    img:PHOTOS.bronco_full, credit:"Craigslist" },
 
   { make:"Ford", year:1988, model:"F-150", trim:"",
     price:2000, est_low:4500, est_high:9000, mi:"Unknown", ac:"Unknown", running:"Unknown",
@@ -1237,20 +1240,21 @@ const TRUCKS = [
     price:6500, est_low:5000, est_high:10000, mi:"188K", ac:"Unknown", running:"Unknown",
     cond:"High Mileage", loc:"Albuquerque, NM", src:"Facebook Marketplace",
     url:"https://www.facebook.com/marketplace/item/2421395261613136/",
-    img:PHOTOS.bronco_full, credit:"Wikimedia Commons" },
+    img:PHOTOS.bronco_full, credit:"Craigslist" },
 
   { make:"Ford", year:1992, model:"Bronco XLT", trim:"4x4",
     price:7000, est_low:5000, est_high:10000, mi:"274K", ac:"Unknown", running:"Unknown",
     cond:"Very High Mileage", loc:"Albuquerque, NM", src:"Facebook Marketplace",
     url:"https://www.facebook.com/marketplace/item/2026129791307029/",
-    img:PHOTOS.bronco_full, credit:"Wikimedia Commons" },
+    img:PHOTOS.bronco_full, credit:"Craigslist" },
 
   // ── Ford / Craigslist ──────────────────────────────────────────────
   { make:"Ford", year:1976, model:"Bronco (Early 1st Gen)", trim:"302 V8 4x4",
     price:29500, est_low:35000, est_high:75000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"1st Gen — Inspect Closely", loc:"Cedar Grove, NM", src:"Craigslist",
     url:"https://albuquerque.craigslist.org/ctd/d/cedar-grove-1976-ford-bronco-302/7933062439.html",
-    img:PHOTOS.bronco_1st, credit:"Wikimedia Commons" },
+    img:'https://images.craigslist.org/00q0q_6ZpzWoYMh1T_0kE0fu_1200x900.jpg',
+    credit:"Craigslist" },
 
   { make:"Ford", year:1977, model:"F-150 4WD", trim:"400 V8",
     price:6000, est_low:10000, est_high:20000, mi:"Unknown", ac:"Unknown", running:"YES",
@@ -1262,19 +1266,22 @@ const TRUCKS = [
     price:2500, est_low:5000, est_high:14000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Unknown — Inspect", loc:"Albuquerque, NM", src:"Craigslist",
     url:"https://albuquerque.craigslist.org/ctd/d/albuquerque-1970-ford-f100-ranger-for/7935564068.html",
-    img:PHOTOS.ford_f100, credit:"Wikimedia Commons" },
+    img:'https://images.craigslist.org/00Z0Z_hsZCCOquBL0_0t20CI_1200x900.jpg',
+    credit:"Craigslist" },
 
   { make:"Ford", year:1970, model:"F100 Ranger", trim:"2nd Listing",
     price:2500, est_low:5000, est_high:14000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Unknown — Inspect", loc:"Albuquerque, NM", src:"Craigslist",
     url:"https://albuquerque.craigslist.org/ctd/d/albuquerque-1970-ford-f100-ranger-for/7934953471.html",
-    img:PHOTOS.ford_f100, credit:"Wikimedia Commons" },
+    img:'https://images.craigslist.org/00H0H_4T9qov84EhP_0t20CI_1200x900.jpg',
+    credit:"Craigslist" },
 
   { make:"Ford", year:1993, model:"Bronco XLT", trim:"4x4",
     price:12500, est_low:10000, est_high:18000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Good (assumed)", loc:"Albuquerque, NM", src:"Craigslist",
     url:"https://albuquerque.craigslist.org/cto/d/albuquerque-1993-ford-bronco-xlt-4x4/7930408726.html",
-    img:PHOTOS.bronco_full, credit:"Wikimedia Commons" },
+    img:'https://images.craigslist.org/00L0L_bUEQ9u6FJHx_0CI0t2_1200x900.jpg',
+    credit:"Craigslist" },
 
   // ── International Harvester ────────────────────────────────────────
   { make:"International Harvester", year:1977, model:"Scout II", trim:"345 V8 — Has AC",
