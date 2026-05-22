@@ -4,75 +4,78 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>High Desert Iron — Classic Trucks of New Mexico</title>
-<meta name="description" content="The most complete marketplace guide to classic Chevy, Ford, and International Harvester trucks for sale in Albuquerque and New Mexico. Updated May 2026.">
+<meta name="description" content="The most complete marketplace guide to classic Chevy, Ford, GMC and International Harvester trucks for sale in Albuquerque and New Mexico. Updated May 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
+/* ═══════════════════════════════════════════════════════════════════════
+   HIGH DESERT IRON — VINTAGE IMPECCABLE DESIGN SYSTEM
+   Color system: OKLCH perceptual color space
+   Typography: Playfair Display · Libre Baskerville · Courier Prime
+   Palette: Warm parchment / deep sepia / rust accent
+═══════════════════════════════════════════════════════════════════════ */
 
-/* ─── OKLCH design tokens — Impeccable color system ─────────────────────────── */
 :root {
-  /* Backgrounds — warm amber-tinted charcoal, not pure black */
-  --bg-base:      oklch(13% 0.012 68);
-  --bg-surface:   oklch(18% 0.014 68);
-  --bg-elevated:  oklch(23% 0.013 68);
-  --bg-overlay:   oklch(28% 0.012 68);
+  /* ── Backgrounds — warm cream, aged paper, parchment ── */
+  --bg-base:      oklch(93% 0.022 80);   /* main parchment */
+  --bg-surface:   oklch(96% 0.015 78);   /* lighter cream */
+  --bg-elevated:  oklch(90% 0.028 76);   /* aged tan */
+  --bg-dark:      oklch(18% 0.030 55);   /* deep sepia — hero, nav */
+  --bg-dark-surface: oklch(22% 0.028 54);
 
-  /* Text — warm off-white, never pure white */
-  --text-primary:   oklch(94% 0.010 80);
-  --text-secondary: oklch(62% 0.018 70);
-  --text-muted:     oklch(42% 0.014 70);
+  /* ── Text ── */
+  --text-primary:   oklch(18% 0.030 52);  /* deep sepia brown */
+  --text-secondary: oklch(36% 0.026 54);  /* medium brown */
+  --text-muted:     oklch(54% 0.020 62);  /* warm tan */
+  --text-light:     oklch(92% 0.016 78);  /* light cream, on dark bg */
+  --text-light-dim: oklch(72% 0.018 72);  /* dimmer cream */
 
-  /* Accent — rich amber, earned by rarity (≤10% surface area in restrained zones) */
-  --amber:       oklch(76% 0.17 82);
-  --amber-dim:   oklch(60% 0.13 82);
-  --amber-glow:  oklch(76% 0.17 82 / 0.12);
+  /* ── Accent ── */
+  --rust:      oklch(52% 0.19 36);   /* primary — deep rust red */
+  --rust-dim:  oklch(38% 0.14 36);
+  --rust-glow: oklch(52% 0.19 36 / 0.15);
+  --amber:     oklch(68% 0.17 77);   /* secondary — warm gold */
+  --amber-dim: oklch(52% 0.13 77);
 
-  /* Make colors — each manufacturer gets a distinct identity */
-  --chevy:       oklch(78% 0.16 94);   /* warm gold */
-  --chevy-dim:   oklch(55% 0.10 94);
-  --chevy-bg:    oklch(78% 0.16 94 / 0.08);
+  /* ── Make identity — rich, vintage-appropriate ── */
+  --chevy:     oklch(50% 0.20 36);   /* Chevy maroon/rust */
+  --chevy-bg:  oklch(50% 0.20 36 / 0.08);
+  --ford:      oklch(36% 0.16 262);  /* Ford navy */
+  --ford-bg:   oklch(36% 0.16 262 / 0.08);
+  --ih:        oklch(42% 0.16 140);  /* IH forest green */
+  --ih-bg:     oklch(42% 0.16 140 / 0.10);
+  --gmc:       oklch(42% 0.14 48);   /* GMC dark amber */
+  --gmc-bg:    oklch(42% 0.14 48 / 0.08);
 
-  --ford:        oklch(58% 0.14 238);  /* steel blue */
-  --ford-dim:    oklch(42% 0.10 238);
-  --ford-bg:     oklch(58% 0.14 238 / 0.08);
+  /* ── Deal ratings ── */
+  --deal-fire:  oklch(48% 0.18 140);
+  --deal-good:  oklch(44% 0.16 148);
+  --deal-fair:  oklch(54% 0.17 77);
+  --deal-high:  oklch(55% 0.18 54);
+  --deal-over:  oklch(50% 0.18 22);
 
-  --ih:          oklch(55% 0.16 148);  /* IH harvest green */
-  --ih-dim:      oklch(40% 0.11 148);
-  --ih-bg:       oklch(55% 0.16 148 / 0.10);
+  /* ── Borders ── */
+  --border:      oklch(78% 0.028 70);   /* warm tan */
+  --border-dark: oklch(60% 0.030 62);   /* medium brown */
+  --border-rule: oklch(70% 0.025 68);   /* hairline rule */
 
-  --gmc:         oklch(62% 0.10 30);   /* GMC brick red */
-  --gmc-bg:      oklch(62% 0.10 30 / 0.08);
+  /* ── Typography ── */
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-body:    'Libre Baskerville', 'Georgia', serif;
+  --font-mono:    'Courier Prime', 'Courier New', monospace;
+  --font-cond:    'Barlow Condensed', sans-serif;
 
-  /* Deal rating colors */
-  --deal-fire:   oklch(70% 0.18 140);  /* great deal — green */
-  --deal-good:   oklch(72% 0.14 155);
-  --deal-fair:   oklch(78% 0.16 94);   /* fair — amber */
-  --deal-high:   oklch(72% 0.16 60);   /* high end — orange */
-  --deal-over:   oklch(62% 0.18 22);   /* overpriced — red */
+  /* ── Spacing ── */
+  --sp-xs: 6px; --sp-sm: 12px; --sp-md: 24px;
+  --sp-lg: 48px; --sp-xl: 80px;
 
-  /* Borders */
-  --border:      oklch(28% 0.010 68);
-  --border-lit:  oklch(35% 0.012 68);
-
-  /* Typography */
-  --font-display: 'Bebas Neue', 'Barlow Condensed', sans-serif;
-  --font-body:    'Barlow', system-ui, sans-serif;
-  --font-cond:    'Barlow Condensed', 'Barlow', sans-serif;
-
-  /* Spacing (vertical rhythm: 24px base unit) */
-  --sp-xs:  6px;
-  --sp-sm:  12px;
-  --sp-md:  24px;
-  --sp-lg:  48px;
-  --sp-xl:  96px;
-
-  /* Motion — ease-out-quart only, no bounce */
+  /* ── Motion ── */
   --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
-  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
 }
 
-/* ─── Reset ─────────────────────────────────────────────────────────────────── */
+/* ── Reset ─────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
 body {
@@ -80,123 +83,155 @@ body {
   color: var(--text-primary);
   font-family: var(--font-body);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.6;
   min-height: 100dvh;
+  /* Subtle paper grain texture */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
 }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 button { cursor: pointer; border: none; background: none; font: inherit; color: inherit; }
 
-/* ─── NAV ────────────────────────────────────────────────────────────────────── */
+/* ── NAV ────────────────────────────────────────────────────────────── */
 nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: oklch(13% 0.012 68 / 0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg-dark);
+  border-bottom: 3px solid var(--rust);
   padding: 0 var(--sp-lg);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--sp-md);
   height: 56px;
 }
 .nav-brand {
   font-family: var(--font-display);
-  font-size: 1.5rem;
-  letter-spacing: 0.04em;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-light);
+}
+.nav-brand em {
+  font-style: italic;
   color: var(--amber);
+  font-weight: 400;
 }
-.nav-brand span { color: var(--text-primary); }
-.nav-meta {
+.nav-rule {
   font-family: var(--font-cond);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-.nav-meta strong { color: var(--amber); }
-
-/* ─── HERO ───────────────────────────────────────────────────────────────────── */
-.hero {
-  padding: var(--sp-xl) var(--sp-lg) var(--sp-lg);
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-}
-.hero-eyebrow {
-  font-family: var(--font-cond);
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.20em;
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--text-light-dim);
+}
+.nav-date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-light-dim);
+  letter-spacing: 0.04em;
+}
+
+/* ── HERO ───────────────────────────────────────────────────────────── */
+.hero {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding: var(--sp-xl) var(--sp-lg) var(--sp-lg);
+  position: relative;
+  overflow: hidden;
+}
+/* Vintage texture overlay */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.45' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero-inner { max-width: 900px; }
+.hero-kicker {
+  font-family: var(--font-cond);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--rust);
   margin-bottom: var(--sp-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+}
+.hero-kicker::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rust);
+  opacity: 0.4;
+  max-width: 120px;
 }
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 900;
   line-height: 0.92;
-  letter-spacing: 0.01em;
-  text-wrap: balance;
+  letter-spacing: -0.01em;
+  color: var(--text-light);
   margin-bottom: var(--sp-md);
-  color: var(--text-primary);
 }
 .hero h1 em {
-  font-style: normal;
+  font-style: italic;
   color: var(--amber);
 }
 .hero-sub {
-  font-size: 1.0625rem;
-  color: var(--text-secondary);
-  max-width: 56ch;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-light-dim);
+  line-height: 1.7;
+  max-width: 62ch;
   margin-bottom: var(--sp-lg);
-  line-height: 1.6;
 }
 
 /* Stats strip */
 .stats-strip {
   display: flex;
-  gap: var(--sp-lg);
   flex-wrap: wrap;
-  padding: var(--sp-md) 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  margin-bottom: var(--sp-lg);
+  gap: var(--sp-md);
+  padding-top: var(--sp-md);
+  border-top: 1px solid oklch(36% 0.022 54);
 }
-.stat {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
+.stat { display: flex; flex-direction: column; gap: 3px; }
 .stat-num {
-  font-family: var(--font-display);
-  font-size: 2.25rem;
-  line-height: 1;
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--amber);
+  line-height: 1;
 }
 .stat-label {
   font-family: var(--font-cond);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: oklch(55% 0.018 66);
 }
 
 /* Make legend */
 .make-legend {
   display: flex;
-  gap: var(--sp-md);
   flex-wrap: wrap;
+  gap: var(--sp-sm);
+  margin-top: var(--sp-md);
 }
 .make-pill {
   display: flex;
   align-items: center;
-  gap: var(--sp-xs);
+  gap: 6px;
   font-family: var(--font-cond);
-  font-size: 0.8125rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-light-dim);
 }
 .make-dot {
   width: 8px; height: 8px;
@@ -204,240 +239,261 @@ nav {
   flex-shrink: 0;
 }
 
-/* ─── FILTERS ────────────────────────────────────────────────────────────────── */
+/* ── FILTER BAR ─────────────────────────────────────────────────────── */
 .filter-bar {
-  background: var(--bg-surface);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 56px;
-  z-index: 90;
+  background: var(--bg-elevated);
+  border-bottom: 2px solid var(--border-dark);
+  position: sticky; top: 56px; z-index: 90;
 }
 .filter-inner {
-  max-width: 1200px;
+  max-width: 1260px;
   margin: 0 auto;
-  padding: var(--sp-sm) var(--sp-lg);
+  padding: 10px var(--sp-lg);
   display: flex;
-  gap: var(--sp-sm);
+  align-items: center;
   flex-wrap: wrap;
-  align-items: center;
-}
-.filter-group {
-  display: flex;
-  gap: 4px;
-  align-items: center;
+  gap: var(--sp-sm);
 }
 .filter-label {
   font-family: var(--font-cond);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.20em;
   text-transform: uppercase;
   color: var(--text-muted);
-  padding-right: 4px;
+  flex-shrink: 0;
+}
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 .filter-btn {
   font-family: var(--font-cond);
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 5px 12px;
-  border-radius: 4px;
-  border: 1px solid var(--border);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  border: 1px solid var(--border-dark);
+  border-radius: 2px;
   color: var(--text-secondary);
-  background: transparent;
+  background: var(--bg-surface);
   transition: all 0.15s var(--ease-out);
 }
 .filter-btn:hover {
-  border-color: var(--border-lit);
-  color: var(--text-primary);
-  background: var(--bg-elevated);
+  background: var(--rust);
+  border-color: var(--rust);
+  color: oklch(96% 0.008 78);
 }
 .filter-btn.active {
-  background: var(--amber);
-  border-color: var(--amber);
-  color: var(--bg-base);
+  background: var(--rust);
+  border-color: var(--rust);
+  color: oklch(96% 0.008 78);
 }
-.filter-btn[data-make="Chevrolet"].active { background: var(--chevy); border-color: var(--chevy); }
-.filter-btn[data-make="Ford"].active { background: var(--ford); border-color: var(--ford); }
-.filter-btn[data-make="International Harvester"].active { background: var(--ih); border-color: var(--ih); }
-.filter-btn[data-make="GMC"].active { background: var(--gmc); border-color: var(--gmc); }
-
-.filter-divider { width: 1px; height: 24px; background: var(--border); margin: 0 4px; }
-
+.filter-divider {
+  width: 1px; height: 24px;
+  background: var(--border-dark);
+  flex-shrink: 0;
+  margin: 0 4px;
+}
 .sort-select {
   font-family: var(--font-cond);
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 5px 28px 5px 10px;
-  border-radius: 4px;
-  border: 1px solid var(--border);
+  letter-spacing: 0.06em;
+  padding: 4px 8px;
+  border: 1px solid var(--border-dark);
+  border-radius: 2px;
+  background: var(--bg-surface);
   color: var(--text-secondary);
-  background: var(--bg-elevated);
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23666'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 8px center;
   cursor: pointer;
 }
-
 .result-count {
-  font-family: var(--font-cond);
-  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   color: var(--text-muted);
   margin-left: auto;
 }
-.result-count strong { color: var(--amber); }
+.result-count strong { color: var(--text-primary); }
 
-/* ─── MAIN GRID ──────────────────────────────────────────────────────────────── */
+/* ── MAIN WRAP ──────────────────────────────────────────────────────── */
 .main-wrap {
-  max-width: 1200px;
+  max-width: 1260px;
   margin: 0 auto;
-  padding: var(--sp-md) var(--sp-lg) var(--sp-xl);
+  padding: var(--sp-lg) var(--sp-lg) var(--sp-xl);
 }
 
-/* Section headers */
+/* Section head */
 .section-head {
   display: flex;
   align-items: baseline;
-  gap: var(--sp-sm);
-  padding: var(--sp-lg) 0 var(--sp-md);
-  border-bottom: 1px solid var(--border);
+  gap: var(--sp-md);
   margin-bottom: var(--sp-md);
+  padding-bottom: var(--sp-sm);
+  border-bottom: 1px solid var(--border-rule);
+}
+.section-head::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: var(--border-rule);
 }
 .section-head h2 {
   font-family: var(--font-display);
-  font-size: 2.25rem;
-  letter-spacing: 0.02em;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
   line-height: 1;
 }
 .section-tag {
   font-family: var(--font-cond);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-muted);
-  border: 1px solid var(--border);
-  padding: 3px 8px;
-  border-radius: 3px;
+  padding-bottom: 2px;
 }
 
-/* Truck grid */
+/* ── IH SCOUT CALLOUT ───────────────────────────────────────────────── */
+.ih-callout {
+  background: var(--ih-bg);
+  border: 1px solid oklch(42% 0.16 140 / 0.30);
+  border-left: 4px solid var(--ih);
+  border-radius: 2px;
+  padding: var(--sp-md);
+  margin-bottom: var(--sp-lg);
+}
+.ih-callout-head {
+  font-family: var(--font-cond);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ih);
+  margin-bottom: 6px;
+}
+.ih-callout p {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 72ch;
+}
+
+/* ── TRUCK GRID ─────────────────────────────────────────────────────── */
 .truck-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
   gap: var(--sp-md);
+  margin-bottom: var(--sp-xl);
 }
 
-/* ─── TRUCK CARD ─────────────────────────────────────────────────────────────── */
+/* ── TRUCK CARD ─────────────────────────────────────────────────────── */
 .truck-card {
   background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  overflow: hidden;
+  border: 2px solid var(--border-dark);
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s var(--ease-out), border-color 0.2s var(--ease-out);
+  overflow: hidden;
+  transition: transform 0.18s var(--ease-out), box-shadow 0.18s var(--ease-out);
+  position: relative;
 }
 .truck-card:hover {
   transform: translateY(-3px);
-  border-color: var(--border-lit);
+  box-shadow: 0 8px 28px oklch(18% 0.030 52 / 0.14);
 }
-.truck-card[data-make="Chevrolet"]:hover { border-color: var(--chevy-dim); }
-.truck-card[data-make="Ford"]:hover { border-color: var(--ford-dim); }
-.truck-card[data-make="International Harvester"]:hover { border-color: var(--ih-dim); }
-.truck-card[data-make="GMC"]:hover { border-color: var(--gmc); }
 
-/* Card image / visual header */
+/* Card photo */
 .card-visual {
-  height: 160px;
-  position: relative;
+  width: 100%;
+  height: 200px;
   overflow: hidden;
-  background: var(--bg-elevated);
+  position: relative;
   flex-shrink: 0;
+  background: var(--bg-elevated);
 }
 .card-visual img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s var(--ease-out);
+  object-position: center;
+  filter: contrast(1.04) saturate(0.82) sepia(0.18);
+  transition: filter 0.3s var(--ease-out), transform 0.3s var(--ease-out);
 }
-.truck-card:hover .card-visual img { transform: scale(1.04); }
-
-/* CSS gradient visual fallbacks — intentional, not lazy */
-.card-visual.chevy-visual {
-  background: linear-gradient(135deg,
-    oklch(18% 0.012 68) 0%,
-    oklch(28% 0.06 94) 60%,
-    oklch(35% 0.10 94) 100%);
-}
-.card-visual.ford-visual {
-  background: linear-gradient(135deg,
-    oklch(15% 0.012 68) 0%,
-    oklch(22% 0.06 238) 60%,
-    oklch(30% 0.10 238) 100%);
-}
-.card-visual.ih-visual {
-  background: linear-gradient(135deg,
-    oklch(14% 0.012 68) 0%,
-    oklch(22% 0.08 148) 60%,
-    oklch(32% 0.13 148) 100%);
-}
-.card-visual.gmc-visual {
-  background: linear-gradient(135deg,
-    oklch(16% 0.012 68) 0%,
-    oklch(26% 0.06 30) 60%,
-    oklch(33% 0.09 30) 100%);
+.truck-card:hover .card-visual img {
+  filter: contrast(1.06) saturate(0.88) sepia(0.12);
+  transform: scale(1.03);
 }
 
-/* Year watermark on visual */
+/* CSS fallback gradients per make */
+.chevy-visual { background: linear-gradient(160deg, oklch(50% 0.20 36 / 0.18) 0%, oklch(90% 0.028 76) 100%); }
+.ford-visual  { background: linear-gradient(160deg, oklch(36% 0.16 262 / 0.18) 0%, oklch(90% 0.028 76) 100%); }
+.ih-visual    { background: linear-gradient(160deg, oklch(42% 0.16 140 / 0.18) 0%, oklch(90% 0.028 76) 100%); }
+.gmc-visual   { background: linear-gradient(160deg, oklch(42% 0.14 48 / 0.18) 0%, oklch(90% 0.028 76) 100%); }
+
+/* Watermark year when no image */
 .card-visual-year {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 10px 14px;
-  background: linear-gradient(to top, oklch(13% 0.012 68 / 0.9), transparent);
+  bottom: 12px; left: 16px;
   font-family: var(--font-display);
-  font-size: 3.5rem;
+  font-size: 4rem;
+  font-weight: 900;
+  font-style: italic;
   line-height: 1;
-  letter-spacing: 0.01em;
-  color: oklch(94% 0.010 80 / 0.18);
+  color: var(--text-primary);
+  opacity: 0.12;
 }
 
 /* Make badge */
 .card-make-badge {
   position: absolute;
-  top: 10px;
-  left: 12px;
+  top: 10px; left: 10px;
   font-family: var(--font-cond);
-  font-size: 0.65rem;
+  font-size: 0.58rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   padding: 3px 8px;
-  border-radius: 3px;
+  border-radius: 1px;
 }
-[data-make="Chevrolet"] .card-make-badge { background: var(--chevy); color: var(--bg-base); }
-[data-make="Ford"] .card-make-badge { background: var(--ford); color: oklch(96% 0.006 238); }
-[data-make="International Harvester"] .card-make-badge { background: var(--ih); color: oklch(96% 0.006 148); }
-[data-make="GMC"] .card-make-badge { background: var(--gmc); color: oklch(96% 0.006 30); }
+[data-make="Chevrolet"] .card-make-badge    { background: var(--chevy); color: oklch(97% 0.006 36); }
+[data-make="Ford"] .card-make-badge         { background: var(--ford);  color: oklch(97% 0.006 262); }
+[data-make="International Harvester"] .card-make-badge { background: var(--ih); color: oklch(97% 0.006 140); }
+[data-make="GMC"] .card-make-badge          { background: var(--gmc);  color: oklch(97% 0.006 48); }
 
 /* Source badge */
 .card-source-badge {
   position: absolute;
-  top: 10px;
-  right: 12px;
+  top: 10px; right: 10px;
   font-family: var(--font-cond);
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   padding: 3px 7px;
-  border-radius: 3px;
-  background: oklch(13% 0.012 68 / 0.85);
-  color: var(--text-secondary);
-  border: 1px solid var(--border);
+  border-radius: 1px;
+  background: oklch(18% 0.030 52 / 0.78);
+  color: oklch(78% 0.015 72);
+  border: 1px solid oklch(36% 0.022 54 / 0.6);
+}
+
+/* Photo credit overlay — bottom of image */
+.card-photo-credit {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 18px 10px 5px;
+  background: linear-gradient(to top, oklch(18% 0.030 52 / 0.6), transparent);
+  font-family: var(--font-cond);
+  font-size: 0.52rem;
+  letter-spacing: 0.08em;
+  color: oklch(80% 0.015 72 / 0.8);
+  text-align: right;
 }
 
 /* Card body */
@@ -446,90 +502,120 @@ nav {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--sp-xs);
+  gap: 6px;
+  background: var(--bg-surface);
+  position: relative;
 }
-.card-year-make {
+/* Thin top rule */
+.card-body::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0; left: var(--sp-md); right: var(--sp-md);
+  height: 1px;
+  background: var(--border);
+}
+
+.card-catalog-no {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+}
+.card-year-line {
   font-family: var(--font-cond);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
 .card-model {
-  font-family: var(--font-cond);
-  font-size: 1.2rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
   font-weight: 700;
   line-height: 1.2;
   color: var(--text-primary);
 }
+.card-trim {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+  margin-top: -3px;
+}
+
+/* Price row */
 .card-price-row {
   display: flex;
   align-items: baseline;
-  gap: var(--sp-sm);
+  gap: 10px;
   margin-top: 6px;
 }
 .card-price {
   font-family: var(--font-display);
-  font-size: 1.875rem;
+  font-size: 2rem;
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
 }
 [data-make="Chevrolet"] .card-price { color: var(--chevy); }
-[data-make="Ford"] .card-price { color: var(--ford); }
+[data-make="Ford"] .card-price      { color: var(--ford); }
 [data-make="International Harvester"] .card-price { color: var(--ih); }
-[data-make="GMC"] .card-price { color: var(--gmc); }
-.card-price.call { color: var(--amber); }
+[data-make="GMC"] .card-price       { color: var(--gmc); }
+.card-price.call { color: var(--amber); font-style: italic; }
 
 .card-est {
-  font-family: var(--font-cond);
-  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
   color: var(--text-muted);
-  line-height: 1.2;
+  line-height: 1.3;
 }
 
-/* Deal rating */
+/* Deal badge — stamp style */
 .deal-badge {
   display: inline-flex;
   align-items: center;
   gap: 5px;
   font-family: var(--font-cond);
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 3px 9px;
-  border-radius: 3px;
+  border-radius: 1px;
+  border-width: 1px;
+  border-style: solid;
   width: fit-content;
   margin-top: 4px;
 }
-.deal-fire   { background: oklch(70% 0.18 140 / 0.15); color: var(--deal-fire); border: 1px solid oklch(70% 0.18 140 / 0.3); }
-.deal-good   { background: oklch(72% 0.14 155 / 0.12); color: var(--deal-good); border: 1px solid oklch(72% 0.14 155 / 0.25); }
-.deal-fair   { background: oklch(78% 0.16 94 / 0.12); color: var(--deal-fair); border: 1px solid oklch(78% 0.16 94 / 0.25); }
-.deal-high   { background: oklch(72% 0.16 60 / 0.12); color: var(--deal-high); border: 1px solid oklch(72% 0.16 60 / 0.25); }
-.deal-over   { background: oklch(62% 0.18 22 / 0.12); color: var(--deal-over); border: 1px solid oklch(62% 0.18 22 / 0.25); }
-.deal-verify { background: oklch(42% 0.008 68 / 0.5); color: var(--text-muted); border: 1px solid var(--border); }
+.deal-fire   { background: oklch(48% 0.18 140 / 0.10); color: var(--deal-fire); border-color: oklch(48% 0.18 140 / 0.35); }
+.deal-good   { background: oklch(44% 0.16 148 / 0.10); color: var(--deal-good); border-color: oklch(44% 0.16 148 / 0.30); }
+.deal-fair   { background: oklch(54% 0.17 77  / 0.12); color: var(--deal-fair); border-color: oklch(54% 0.17 77  / 0.30); }
+.deal-high   { background: oklch(55% 0.18 54  / 0.10); color: var(--deal-high); border-color: oklch(55% 0.18 54  / 0.30); }
+.deal-over   { background: oklch(50% 0.18 22  / 0.10); color: var(--deal-over); border-color: oklch(50% 0.18 22  / 0.30); }
+.deal-verify { background: oklch(78% 0.020 70 / 0.3);  color: var(--text-muted); border-color: var(--border-dark); }
 
 /* Detail chips */
 .card-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 4px;
   margin-top: 6px;
 }
 .chip {
-  font-family: var(--font-cond);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  padding: 2px 8px;
-  border-radius: 3px;
-  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 2px 7px;
+  border-radius: 1px;
+  border: 1px solid var(--border-dark);
   color: var(--text-secondary);
   white-space: nowrap;
 }
-.chip.chip-yes { border-color: oklch(70% 0.18 140 / 0.4); color: var(--deal-fire); }
-.chip.chip-no  { border-color: oklch(62% 0.18 22 / 0.4);  color: var(--deal-over); }
+.chip.chip-yes { border-color: oklch(48% 0.18 140 / 0.45); color: var(--deal-fire); background: oklch(48% 0.18 140 / 0.06); }
+.chip.chip-no  { border-color: oklch(50% 0.18 22  / 0.45); color: var(--deal-over); background: oklch(50% 0.18 22  / 0.06); }
 
 /* Card footer */
 .card-footer {
@@ -539,77 +625,72 @@ nav {
   align-items: center;
   justify-content: space-between;
   gap: var(--sp-sm);
+  background: var(--bg-elevated);
 }
 .card-location {
-  font-family: var(--font-cond);
-  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
   color: var(--text-muted);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
 }
 .card-cta {
   font-family: var(--font-cond);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 6px 14px;
-  border-radius: 3px;
-  border: 1px solid var(--border-lit);
-  color: var(--text-primary);
-  background: var(--bg-elevated);
+  border-radius: 1px;
+  border: 1px solid var(--border-dark);
+  color: var(--text-secondary);
+  background: var(--bg-surface);
   transition: all 0.15s var(--ease-out);
 }
 .card-cta:hover {
-  background: var(--amber);
-  border-color: var(--amber);
-  color: var(--bg-base);
+  background: var(--rust);
+  border-color: var(--rust);
+  color: oklch(97% 0.006 36);
 }
-.card-cta.no-link {
-  opacity: 0.5;
-  pointer-events: none;
-}
+.card-cta.no-link { opacity: 0.45; pointer-events: none; }
 
-/* ─── MARKET VALUES TABLE ─────────────────────────────────────────────────────── */
-.values-section {
-  margin-top: var(--sp-xl);
-}
+/* ── MARKET VALUES ──────────────────────────────────────────────────── */
+.values-section { margin-top: var(--sp-xl); }
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
   gap: var(--sp-md);
 }
 .value-card {
   background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: 6px;
+  border: 1px solid var(--border-dark);
+  border-radius: 2px;
   overflow: hidden;
 }
 .value-card-head {
   padding: var(--sp-sm) var(--sp-md);
   background: var(--bg-elevated);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-dark);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--sp-sm);
 }
 .value-card-head h3 {
-  font-family: var(--font-cond);
-  font-size: 1rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
   font-weight: 700;
   line-height: 1.2;
 }
 .value-trend {
-  font-family: var(--font-cond);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
 }
 .value-table {
   width: 100%;
   border-collapse: collapse;
-  font-family: var(--font-cond);
-  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
 }
 .value-table th, .value-table td {
   padding: 8px 16px;
@@ -617,65 +698,40 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 .value-table th {
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-muted);
-  font-weight: 600;
+  font-weight: 700;
+  background: var(--bg-elevated);
 }
 .value-table td { color: var(--text-secondary); }
-.value-table td:first-child { color: var(--text-primary); font-weight: 500; }
-.value-table td.money { font-variant-numeric: tabular-nums; }
-.value-table tr:last-child td, .value-table tr:last-child th { border-bottom: none; }
+.value-table td:first-child { color: var(--text-primary); font-weight: 700; font-family: var(--font-body); }
+.value-table tr:last-child td { border-bottom: none; }
 .value-table tr:hover td { background: var(--bg-elevated); }
 
-/* IH special callout */
-.ih-callout {
-  background: var(--ih-bg);
-  border: 1px solid oklch(55% 0.16 148 / 0.25);
-  border-radius: 6px;
-  padding: var(--sp-md);
-  margin: var(--sp-md) 0;
-}
-.ih-callout-head {
-  font-family: var(--font-cond);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ih);
-  margin-bottom: var(--sp-xs);
-}
-.ih-callout p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  max-width: 70ch;
-}
-
-/* ─── CHECKLIST ──────────────────────────────────────────────────────────────── */
+/* ── BUYER CHECKLIST ────────────────────────────────────────────────── */
 .checklist-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: var(--sp-md);
   margin-top: var(--sp-md);
 }
 .checklist-card {
   background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: 6px;
+  border: 1px solid var(--border-dark);
+  border-radius: 2px;
   overflow: hidden;
 }
 .checklist-card-head {
   padding: var(--sp-sm) var(--sp-md);
-  background: var(--bg-elevated);
-  border-bottom: 1px solid var(--border);
+  background: var(--rust);
   font-family: var(--font-cond);
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--amber);
+  color: oklch(97% 0.006 36);
 }
 .checklist-item {
   display: flex;
@@ -686,74 +742,83 @@ nav {
 }
 .checklist-item:last-child { border-bottom: none; }
 .check-box {
-  width: 16px; height: 16px;
-  border: 1.5px solid var(--border-lit);
-  border-radius: 3px;
+  width: 14px; height: 14px;
+  border: 1.5px solid var(--border-dark);
+  border-radius: 1px;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 .check-text {
-  font-size: 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
   color: var(--text-secondary);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 .check-text strong {
   display: block;
   color: var(--text-primary);
-  font-weight: 600;
-  font-size: 0.875rem;
-  margin-bottom: 2px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 1px;
 }
 
-/* ─── FOOTER ─────────────────────────────────────────────────────────────────── */
+/* ── FOOTER ─────────────────────────────────────────────────────────── */
 footer {
-  border-top: 1px solid var(--border);
-  margin-top: var(--sp-xl);
+  border-top: 3px double var(--border-dark);
+  background: var(--bg-dark);
   padding: var(--sp-lg);
   text-align: center;
+  color: var(--text-light-dim);
 }
-.footer-brand {
+.footer-masthead {
   font-family: var(--font-display);
-  font-size: 1.25rem;
-  letter-spacing: 0.04em;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-style: italic;
   color: var(--amber);
-  margin-bottom: var(--sp-xs);
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+.footer-rule {
+  width: 80px;
+  height: 1px;
+  background: oklch(36% 0.022 54);
+  margin: 10px auto;
 }
 .footer-meta {
-  font-family: var(--font-cond);
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: oklch(44% 0.018 60);
+  text-transform: uppercase;
+  margin-bottom: var(--sp-md);
 }
 .footer-sources {
-  margin-top: var(--sp-sm);
   display: flex;
   justify-content: center;
-  gap: var(--sp-md);
   flex-wrap: wrap;
+  gap: var(--sp-md);
 }
 .footer-sources a {
   font-family: var(--font-cond);
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
-  color: var(--text-muted);
+  font-size: 0.65rem;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 1px;
+  color: oklch(44% 0.018 60);
   transition: color 0.15s;
 }
 .footer-sources a:hover { color: var(--amber); }
 
-/* ─── HIDDEN class ───────────────────────────────────────────────────────────── */
+/* ── UTILITIES ──────────────────────────────────────────────────────── */
 .hidden { display: none !important; }
 
-/* ─── RESPONSIVE ─────────────────────────────────────────────────────────────── */
+/* ── RESPONSIVE ─────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  :root { --sp-lg: 20px; --sp-xl: 60px; }
+  :root { --sp-lg: 18px; --sp-xl: 48px; }
   nav { padding: 0 var(--sp-md); }
-  .hero { padding: 48px var(--sp-md) var(--sp-md); }
-  .hero h1 { font-size: clamp(2.5rem, 12vw, 4.5rem); }
-  .stats-strip { gap: var(--sp-md); }
+  .hero { padding: 36px var(--sp-md) var(--sp-md); }
+  .hero h1 { font-size: clamp(2.5rem, 13vw, 4.5rem); }
+  .stats-strip { gap: var(--sp-sm); }
   .filter-inner { padding: 8px var(--sp-md); }
   .main-wrap { padding: var(--sp-md) var(--sp-md) var(--sp-xl); }
   .truck-grid { grid-template-columns: 1fr; }
@@ -769,35 +834,38 @@ footer {
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ── NAV ── -->
 <nav>
-  <div class="nav-brand">High Desert <span>Iron</span></div>
-  <div class="nav-meta">Albuquerque &amp; NM Classic Trucks &nbsp;·&nbsp; Updated <strong>May 2026</strong></div>
+  <div class="nav-brand">High Desert <em>Iron</em></div>
+  <div class="nav-rule">Albuquerque &amp; New Mexico</div>
+  <div class="nav-date">Est. May 2026</div>
 </nav>
 
-<!-- HERO -->
+<!-- ── HERO ── -->
 <header class="hero">
-  <div class="hero-eyebrow">New Mexico's Classic Truck Guide</div>
-  <h1>Find Your<br><em>Dream Truck</em></h1>
-  <p class="hero-sub">The most complete guide to classic Chevy, Ford, GMC, and International Harvester trucks for sale in Albuquerque and New Mexico. Curated listings with market valuations, deal ratings, and a buyer's checklist.</p>
+  <div class="hero-inner">
+    <div class="hero-kicker">New Mexico's Classic Truck Guide</div>
+    <h1>Find Your<br><em>Dream Truck</em></h1>
+    <p class="hero-sub">The most complete guide to classic Chevrolet, Ford, GMC, and International Harvester trucks for sale in Albuquerque and greater New Mexico. Curated listings with market valuations, deal ratings, and a buyer's inspection checklist.</p>
 
-  <div class="stats-strip">
-    <div class="stat"><span class="stat-num" id="total-count">35</span><span class="stat-label">Active Listings</span></div>
-    <div class="stat"><span class="stat-num">4</span><span class="stat-label">Makes</span></div>
-    <div class="stat"><span class="stat-num">$2,000</span><span class="stat-label">Lowest Price</span></div>
-    <div class="stat"><span class="stat-num">$49,500</span><span class="stat-label">Highest Price</span></div>
-    <div class="stat"><span class="stat-num">1963–1993</span><span class="stat-label">Year Range</span></div>
-  </div>
+    <div class="stats-strip">
+      <div class="stat"><span class="stat-num" id="total-count">35</span><span class="stat-label">Active Listings</span></div>
+      <div class="stat"><span class="stat-num">4</span><span class="stat-label">Makes</span></div>
+      <div class="stat"><span class="stat-num">$2,000</span><span class="stat-label">Lowest Price</span></div>
+      <div class="stat"><span class="stat-num">$49,500</span><span class="stat-label">Highest Price</span></div>
+      <div class="stat"><span class="stat-num">1963–1993</span><span class="stat-label">Year Range</span></div>
+    </div>
 
-  <div class="make-legend">
-    <div class="make-pill"><div class="make-dot" style="background:var(--chevy)"></div>Chevrolet</div>
-    <div class="make-pill"><div class="make-dot" style="background:var(--ford)"></div>Ford</div>
-    <div class="make-pill"><div class="make-dot" style="background:var(--ih)"></div>International Harvester</div>
-    <div class="make-pill"><div class="make-dot" style="background:var(--gmc)"></div>GMC</div>
+    <div class="make-legend">
+      <div class="make-pill"><div class="make-dot" style="background:var(--chevy)"></div>Chevrolet</div>
+      <div class="make-pill"><div class="make-dot" style="background:var(--ford)"></div>Ford</div>
+      <div class="make-pill"><div class="make-dot" style="background:var(--ih)"></div>International Harvester</div>
+      <div class="make-pill"><div class="make-dot" style="background:var(--gmc)"></div>GMC</div>
+    </div>
   </div>
 </header>
 
-<!-- FILTER BAR -->
+<!-- ── FILTER BAR ── -->
 <div class="filter-bar">
   <div class="filter-inner">
     <div class="filter-group">
@@ -829,29 +897,27 @@ footer {
   </div>
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- ── MAIN ── -->
 <main class="main-wrap">
 
-  <!-- IH CALLOUT -->
+  <!-- IH Callout -->
   <div class="ih-callout" id="ih-callout">
-    <div class="ih-callout-head">Scout EV Effect — Buy Now</div>
-    <p>Volkswagen's Scout Motors just launched its electric Scout SUV for 2026. Historically, brand revivals spike classic values — Ford Bronco prices tripled after the new Bronco launched. IH Scout IIs that sold for $12K in 2020 are now averaging $36K+ at auction. The window to buy before prices climb further is narrowing.</p>
+    <div class="ih-callout-head">⚡ Scout EV Effect — Window to Buy Is Closing</div>
+    <p>Volkswagen's Scout Motors launched its electric Scout SUV for 2026. Historically, brand revivals spike classic values — Ford Bronco prices tripled after the new Bronco launched. IH Scout IIs that sold for $12K in 2020 now average $36K+ at auction. Buy before prices climb further.</p>
   </div>
 
-  <!-- TRUCK GRID -->
+  <!-- All Listings -->
   <div class="section-head">
     <h2>All Listings</h2>
-    <span class="section-tag">May 2026</span>
+    <span class="section-tag">New Mexico · May 2026</span>
   </div>
-  <div class="truck-grid" id="truck-grid">
-    <!-- Cards injected by JS -->
-  </div>
+  <div class="truck-grid" id="truck-grid"><!-- JS rendered --></div>
 
-  <!-- MARKET VALUES -->
+  <!-- Market Valuations -->
   <section class="values-section">
     <div class="section-head">
       <h2>Market Valuations</h2>
-      <span class="section-tag">Hagerty · Classic.com · BaT</span>
+      <span class="section-tag">Hagerty · Classic.com · BaT · May 2026</span>
     </div>
     <div class="values-grid">
 
@@ -861,11 +927,11 @@ footer {
           <span class="value-trend" style="color:var(--deal-fire)">+63% since 2020</span>
         </div>
         <table class="value-table">
-          <thead><tr><th>Condition</th><th class="money">#4 Fair</th><th class="money">#3 Good</th><th class="money">#2 Excellent</th></tr></thead>
+          <thead><tr><th>Condition</th><th>#4 Fair</th><th>#3 Good</th><th>#2 Excellent</th></tr></thead>
           <tbody>
-            <tr><td>C10 2WD</td><td class="money">$4,500–$9K</td><td class="money">$9K–$18K</td><td class="money">$18K–$35K</td></tr>
-            <tr><td>K10 4WD (+15%)</td><td class="money">$5K–$10K</td><td class="money">$10K–$21K</td><td class="money">$21K–$40K</td></tr>
-            <tr><td>Classic.com avg</td><td class="money" colspan="3">$23,956</td></tr>
+            <tr><td>C10 2WD</td><td>$4,500–$9K</td><td>$9K–$18K</td><td>$18K–$35K</td></tr>
+            <tr><td>K10 4WD (+15%)</td><td>$5K–$10K</td><td>$10K–$21K</td><td>$21K–$40K</td></tr>
+            <tr><td>Classic.com avg</td><td colspan="3">$23,956</td></tr>
           </tbody>
         </table>
       </div>
@@ -876,11 +942,11 @@ footer {
           <span class="value-trend" style="color:var(--deal-fire)">📈 Rising Fast</span>
         </div>
         <table class="value-table">
-          <thead><tr><th>Condition</th><th class="money">#4 Fair</th><th class="money">#3 Good</th><th class="money">#2 Excellent</th></tr></thead>
+          <thead><tr><th>Condition</th><th>#4 Fair</th><th>#3 Good</th><th>#2 Excellent</th></tr></thead>
           <tbody>
-            <tr><td>Square Body</td><td class="money">$8K–$12K</td><td class="money">$12K–$22K</td><td class="money">$22K–$38K</td></tr>
-            <tr><td>Frame-Off Restore</td><td class="money">—</td><td class="money">—</td><td class="money">$40K–$75K+</td></tr>
-            <tr><td>Classic.com avg</td><td class="money" colspan="3">$31,200</td></tr>
+            <tr><td>Square Body</td><td>$8K–$12K</td><td>$12K–$22K</td><td>$22K–$38K</td></tr>
+            <tr><td>Frame-Off Restore</td><td>—</td><td>—</td><td>$40K–$75K+</td></tr>
+            <tr><td>Classic.com avg</td><td colspan="3">$31,200</td></tr>
           </tbody>
         </table>
       </div>
@@ -891,11 +957,11 @@ footer {
           <span class="value-trend" style="color:var(--ih)">🚀 Premium</span>
         </div>
         <table class="value-table">
-          <thead><tr><th>Condition</th><th class="money">#4 Fair</th><th class="money">#3 Good</th><th class="money">#2 Excellent</th></tr></thead>
+          <thead><tr><th>Condition</th><th>#4 Fair</th><th>#3 Good</th><th>#2 Excellent</th></tr></thead>
           <tbody>
-            <tr><td>All 1st Gen</td><td class="money">$35K–$50K</td><td class="money">$50K–$75K</td><td class="money">$75K–$100K+</td></tr>
-            <tr><td>V8 models</td><td class="money">$40K+</td><td class="money">$60K+</td><td class="money">$80K–$160K</td></tr>
-            <tr><td>Classic.com avg</td><td class="money" colspan="3">$86,034</td></tr>
+            <tr><td>All 1st Gen</td><td>$35K–$50K</td><td>$50K–$75K</td><td>$75K–$100K+</td></tr>
+            <tr><td>V8 models</td><td>$40K+</td><td>$60K+</td><td>$80K–$160K</td></tr>
+            <tr><td>Classic.com avg</td><td colspan="3">$86,034</td></tr>
           </tbody>
         </table>
       </div>
@@ -906,41 +972,41 @@ footer {
           <span class="value-trend" style="color:var(--deal-fire)">📈 Rising</span>
         </div>
         <table class="value-table">
-          <thead><tr><th>Condition</th><th class="money">#4 Fair</th><th class="money">#3 Good</th><th class="money">#2 Excellent</th></tr></thead>
+          <thead><tr><th>Condition</th><th>#4 Fair</th><th>#3 Good</th><th>#2 Excellent</th></tr></thead>
           <tbody>
-            <tr><td>F-100 2WD</td><td class="money">$5K–$10K</td><td class="money">$12K–$22K</td><td class="money">$22K–$38K</td></tr>
-            <tr><td>F-150 4WD (+20%)</td><td class="money">$6K–$12K</td><td class="money">$14K–$26K</td><td class="money">$26K–$46K</td></tr>
-            <tr><td>BaT record</td><td class="money" colspan="3">$67,725 (1977 Ranger XLT)</td></tr>
+            <tr><td>F-100 2WD</td><td>$5K–$10K</td><td>$12K–$22K</td><td>$22K–$38K</td></tr>
+            <tr><td>F-150 4WD (+20%)</td><td>$6K–$12K</td><td>$14K–$26K</td><td>$26K–$46K</td></tr>
+            <tr><td>BaT record</td><td colspan="3">$67,725 (1977 Ranger XLT)</td></tr>
           </tbody>
         </table>
       </div>
 
-      <div class="value-card" style="border-color:oklch(55% 0.16 148 / 0.3)">
+      <div class="value-card" style="border-color:oklch(42% 0.16 140 / 0.35)">
         <div class="value-card-head" style="background:var(--ih-bg)">
           <h3 style="color:var(--ih)">International Harvester Scout II <span style="color:var(--text-muted);font-weight:400">1971–1980</span></h3>
           <span class="value-trend" style="color:var(--deal-fire)">🔥 Scout EV Effect</span>
         </div>
         <table class="value-table">
-          <thead><tr><th>Condition</th><th class="money">#4 Fair</th><th class="money">#3 Good</th><th class="money">#2 Excellent</th></tr></thead>
+          <thead><tr><th>Condition</th><th>#4 Fair</th><th>#3 Good</th><th>#2 Excellent</th></tr></thead>
           <tbody>
-            <tr><td>Scout II</td><td class="money">$10K–$18K</td><td class="money">$22K–$30K</td><td class="money">$38K–$56K</td></tr>
-            <tr><td>Hagerty avg #2</td><td class="money" colspan="3">$41,913</td></tr>
-            <tr><td>Auction record</td><td class="money" colspan="3">$96,000 (Nov 2025)</td></tr>
+            <tr><td>Scout II</td><td>$10K–$18K</td><td>$22K–$30K</td><td>$38K–$56K</td></tr>
+            <tr><td>Hagerty avg #2</td><td colspan="3">$41,913</td></tr>
+            <tr><td>Auction record</td><td colspan="3">$96,000 (Nov 2025)</td></tr>
           </tbody>
         </table>
       </div>
 
-      <div class="value-card" style="border-color:oklch(55% 0.16 148 / 0.3)">
+      <div class="value-card" style="border-color:oklch(42% 0.16 140 / 0.35)">
         <div class="value-card-head" style="background:var(--ih-bg)">
           <h3 style="color:var(--ih)">IH Scout 800 &amp; Travelall <span style="color:var(--text-muted);font-weight:400">1961–1975</span></h3>
           <span class="value-trend" style="color:var(--deal-fair)">➡️ Sleeper</span>
         </div>
         <table class="value-table">
-          <thead><tr><th>Model</th><th class="money">#3 Good</th><th class="money">Avg Sale</th></tr></thead>
+          <thead><tr><th>Model</th><th>#3 Good</th><th>Avg Sale</th></tr></thead>
           <tbody>
-            <tr><td>Scout 800/800A</td><td class="money">~$16K–$17K</td><td class="money">$34,359</td></tr>
-            <tr><td>Travelall</td><td class="money">$15K–$25K</td><td class="money">$34,818</td></tr>
-            <tr><td>Note</td><td class="money" colspan="2" style="color:var(--ih);font-size:0.75rem">Travelall extremely rare — only 1 listed nationally</td></tr>
+            <tr><td>Scout 800/800A</td><td>~$16K–$17K</td><td>$34,359</td></tr>
+            <tr><td>Travelall</td><td>$15K–$25K</td><td>$34,818</td></tr>
+            <tr><td style="color:var(--ih);font-style:italic;font-size:0.78rem" colspan="3">Travelall extremely rare — only 1 listed nationally</td></tr>
           </tbody>
         </table>
       </div>
@@ -948,7 +1014,7 @@ footer {
     </div>
   </section>
 
-  <!-- BUYER CHECKLIST -->
+  <!-- Buyer's Checklist -->
   <section>
     <div class="section-head" style="margin-top:var(--sp-xl)">
       <h2>Buyer's Checklist</h2>
@@ -993,8 +1059,9 @@ footer {
 </main>
 
 <footer>
-  <div class="footer-brand">High Desert Iron</div>
-  <div class="footer-meta">Research compiled May 2026 &nbsp;·&nbsp; Not affiliated with any seller &nbsp;·&nbsp; Verify all listings before making the drive</div>
+  <div class="footer-masthead">High Desert Iron</div>
+  <div class="footer-rule"></div>
+  <div class="footer-meta">Albuquerque, New Mexico · Compiled May 2026 · Not affiliated with any seller · Verify all listings before making the drive</div>
   <div class="footer-sources">
     <a href="https://albuquerque.craigslist.org" target="_blank" rel="noopener">Craigslist ABQ</a>
     <a href="https://www.facebook.com/marketplace" target="_blank" rel="noopener">FB Marketplace</a>
@@ -1002,202 +1069,274 @@ footer {
     <a href="https://smclassiccars.com" target="_blank" rel="noopener">SM Classic Cars</a>
     <a href="https://barnfinds.com" target="_blank" rel="noopener">Barn Finds</a>
     <a href="https://www.blazerforsale.com" target="_blank" rel="noopener">BlazerForSale</a>
+    <a href="https://davidsclassiccars.com" target="_blank" rel="noopener">David's Classic Cars</a>
     <a href="https://www.hagerty.com/valuation-tools" target="_blank" rel="noopener">Hagerty Valuations</a>
     <a href="https://www.classic.com" target="_blank" rel="noopener">Classic.com</a>
   </div>
 </footer>
 
 <script>
+// ═══════════════════════════════════════════════════════════════════════
+//  PHOTO LIBRARY — Wikimedia Commons + confirmed listing photos
+//  Format: Special:FilePath redirects to actual CDN file
+// ═══════════════════════════════════════════════════════════════════════
+const WM = (f) => `https://upload.wikimedia.org/wikipedia/commons/${f}`;
+
+const PHOTOS = {
+  // Chevrolet C/K Square Body (3rd gen, 1973–1987)
+  ck_73_sq:    WM('a/a7/1977_Chevrolet_C10_pickup_truck.jpg'),
+  ck_sq_orange: WM('a/ab/1985_Chevrolet_C10_pickup_truck%2C_orange%2C_front_8.28.12.jpg'),
+  ck_72_early:  WM('1/18/1972_Chevrolet_C10_Cheyenne_pickup%2C_front_8.28.12.jpg'),
+  ck_sq_late:   WM('a/ab/1985_Chevrolet_C10_pickup_truck%2C_orange%2C_front_8.28.12.jpg'),
+  // Chevy K5 Blazer
+  k5_blazer:   WM('7/70/1985-Chevrolet-K5-Blazer.jpg'),
+  // Chevy S10
+  s10:         WM('b/b2/1988_Chevrolet_S-10_pickup_truck.jpg'),
+  // Ford F-100 / F-Series 2nd gen (1967-1972)
+  ford_f100:   WM('2/21/1970_Ford_F-100_Ranger_pickup%2C_front_left.jpg'),
+  // Ford F-150 (1975-1979 dentside)
+  ford_f150:   WM('5/5d/1977_Ford_F-150_4WD_pickup%2C_orange%2C_front_7.29.16.jpg'),
+  // Ford Bronco 1st gen (1966-1977)
+  bronco_1st:  WM('7/72/1966_Ford_Bronco_%28front%29.jpg'),
+  // Ford Bronco full size (1978-1996)
+  bronco_full: WM('3/33/1990_Ford_Bronco%2C_front_right%2C_6.22.12.jpg'),
+  // IH Scout II (1971-1980)
+  scout_ii:    WM('8/8f/1977_International_Harvester_Scout_II%2C_front_left.jpg'),
+  // IH Scout 800 (1966-1971)
+  scout_800:   WM('d/d8/International_Scout_800A.jpg'),
+  // IH Travelall
+  travelall:   WM('5/5a/1968_International_Travelall.jpg'),
+  // GMC C/K
+  gmc_ck:      WM('4/4b/1971_GMC_C15_Fenderside_pickup.jpg'),
+};
+
+// ═══════════════════════════════════════════════════════════════════════
+//  TRUCK DATA — 35 active listings, May 2026
+// ═══════════════════════════════════════════════════════════════════════
 const TRUCKS = [
-  // ── Chevrolet / Facebook Marketplace ─────────────────────────────────────────
+  // ── Chevrolet / Facebook Marketplace ──────────────────────────────
   { make:"Chevrolet", year:1979, model:"K5 Blazer", trim:"15K Miles — Dealer",
     price:7950, est_low:12000, est_high:25000, mi:"15K", ac:"Unknown", running:"Yes",
     cond:"Very Low Miles", loc:"Albuquerque, NM", src:"Facebook Marketplace",
-    url:"https://www.facebook.com/marketplace/item/1508634340892924/", img:null },
+    url:"https://www.facebook.com/marketplace/item/1508634340892924/",
+    img:PHOTOS.k5_blazer, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1977, model:"C-10 Pickup", trim:"",
     price:10300, est_low:9000, est_high:18000, mi:"133K", ac:"Unknown", running:"Yes",
     cond:"Good (assumed)", loc:"Albuquerque, NM", src:"Facebook Marketplace",
-    url:"https://www.facebook.com/marketplace/item/26297128556606049/", img:null },
+    url:"https://www.facebook.com/marketplace/item/26297128556606049/",
+    img:PHOTOS.ck_73_sq, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1976, model:"C20 Square Body", trim:"3/4-Ton",
     price:8000, est_low:9000, est_high:18000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Unknown", loc:"Albuquerque, NM", src:"Facebook Marketplace",
-    url:"https://www.facebook.com/marketplace/item/739940005368118/", img:null },
+    url:"https://www.facebook.com/marketplace/item/739940005368118/",
+    img:PHOTOS.ck_73_sq, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1977, model:"K30", trim:"1-Ton 4x4",
     price:16000, est_low:9000, est_high:18000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Unknown", loc:"Albuquerque, NM", src:"Facebook Marketplace",
-    url:"https://www.facebook.com/marketplace/item/4269184980010974/", img:null },
+    url:"https://www.facebook.com/marketplace/item/4269184980010974/",
+    img:PHOTOS.ck_73_sq, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1985, model:"C3500 Silverado", trim:"Crew Cab",
     price:15000, est_low:9000, est_high:18000, mi:"85K", ac:"Unknown", running:"Yes",
     cond:"Good", loc:"Albuquerque, NM", src:"Facebook Marketplace",
-    url:"https://www.facebook.com/marketplace/item/1290171676307009/", img:null },
+    url:"https://www.facebook.com/marketplace/item/1290171676307009/",
+    img:PHOTOS.ck_sq_orange, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1988, model:"S10", trim:"Mini-Truck",
     price:10000, est_low:3000, est_high:9000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Unknown", loc:"Albuquerque, NM", src:"Facebook Marketplace",
-    url:"https://www.facebook.com/marketplace/item/26127396630235248/", img:null },
+    url:"https://www.facebook.com/marketplace/item/26127396630235248/",
+    img:PHOTOS.s10, credit:"Wikimedia Commons" },
 
-  // ── Chevrolet / Craigslist ────────────────────────────────────────────────────
+  // ── Chevrolet / Craigslist ─────────────────────────────────────────
   { make:"Chevrolet", year:1973, model:"K10 4WD", trim:"Frame-Off Restored",
     price:32000, est_low:18000, est_high:35000, mi:"4.4K*", ac:"YES", running:"YES",
     cond:"Excellent — Restored", loc:"Albuquerque, NM", src:"Craigslist",
-    url:"https://albuquerque.craigslist.org/cto/d/albuquerque-1973-chevy-k10/7929440729.html", img:null },
+    url:"https://albuquerque.craigslist.org/cto/d/albuquerque-1973-chevy-k10/7929440729.html",
+    img:PHOTOS.ck_72_early, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1977, model:"C-10", trim:"Dealer Build — 350 V8",
     price:35000, est_low:9000, est_high:18000, mi:"76K", ac:"Unknown", running:"YES",
     cond:"Like New — Dealer", loc:"Albuquerque, NM", src:"Craigslist",
-    url:"https://albuquerque.craigslist.org/ctd/d/albuquerque-chevrolet-10-pim0362a/7933562338.html", img:null },
+    url:"https://albuquerque.craigslist.org/ctd/d/albuquerque-chevrolet-10-pim0362a/7933562338.html",
+    img:PHOTOS.ck_73_sq, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1983, model:"Silverado C-10", trim:"Not Running — Has AC",
     price:6000, est_low:9000, est_high:18000, mi:"Unknown", ac:"YES", running:"NO",
     cond:"Not Running — AC Works", loc:"Albuquerque, NM", src:"Craigslist",
-    url:"https://albuquerque.craigslist.org/cto/d/albuquerque-1983-chevy-silverado-10/7935230789.html", img:null },
+    url:"https://albuquerque.craigslist.org/cto/d/albuquerque-1983-chevy-silverado-10/7935230789.html",
+    img:PHOTOS.ck_sq_orange, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1972, model:"C10", trim:"Survivor",
     price:15000, est_low:9000, est_high:18000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Survivor", loc:"Rio Rancho, NM", src:"Craigslist",
-    url:"https://albuquerque.craigslist.org/search/cta?query=1972+c10", img:null },
+    url:"https://albuquerque.craigslist.org/search/cta?query=1972+c10",
+    img:PHOTOS.ck_72_early, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1977, model:"K10", trim:"Short Bed 4x4",
     price:5299, est_low:9000, est_high:18000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Unknown", loc:"Albuquerque, NM", src:"Craigslist",
-    url:"https://albuquerque.craigslist.org/search/cta?query=k10+1977", img:null },
+    url:"https://albuquerque.craigslist.org/search/cta?query=k10+1977",
+    img:PHOTOS.ck_73_sq, credit:"Wikimedia Commons" },
 
-  // ── Chevrolet / AutoTrader + Specialty ───────────────────────────────────────
+  // ── Chevrolet / AutoTrader + Specialty ────────────────────────────
   { make:"Chevrolet", year:1974, model:"C/K Truck", trim:"Only 5,495 Miles",
     price:19000, est_low:8000, est_high:18000, mi:"5,495", ac:"Unknown", running:"Yes",
     cond:"Very Low Miles", loc:"Albuquerque 87109", src:"AutoTrader Classics",
-    url:"https://classics.autotrader.com/classic-cars/1974/chevrolet/c_k_trucks/100754335", img:null },
+    url:"https://classics.autotrader.com/classic-cars/1974/chevrolet/c_k_trucks/100754335",
+    img:PHOTOS.ck_72_early, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1985, model:"C10/C1500", trim:"2WD Regular Cab",
     price:32995, est_low:18000, est_high:35000, mi:"25,397", ac:"Unknown", running:"Yes",
     cond:"Good / Excellent", loc:"Near Albuquerque", src:"AutoTrader Classics",
-    url:"https://classics.autotrader.com/classic-cars/1985/chevrolet/c_k_truck/102752593", img:null },
+    url:"https://classics.autotrader.com/classic-cars/1985/chevrolet/c_k_truck/102752593",
+    img:PHOTOS.ck_sq_orange, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1987, model:"C/K Truck Silverado", trim:"",
     price:49500, est_low:18000, est_high:35000, mi:"52,540", ac:"Unknown", running:"Yes",
     cond:"Excellent", loc:"Near Albuquerque", src:"AutoTrader Classics",
-    url:"https://classics.autotrader.com/classic-cars/1987/chevrolet/c_k_truck/102637871", img:null },
+    url:"https://classics.autotrader.com/classic-cars/1987/chevrolet/c_k_truck/102637871",
+    img:PHOTOS.ck_sq_late, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1987, model:"C10 Shortbed", trim:"ICE COLD AC — Restored",
     price:null, est_low:18000, est_high:35000, mi:"~1.9K*", ac:"YES YES", running:"YES",
     cond:"Excellent — Restored", loc:"Scottsdale AZ (~290 mi)", src:"SMClassicCars",
-    url:"https://smclassiccars.com/chevrolet/240160-1987-chevrolet-c10-shortbed-silverado-trim-350ci-dual-tanks-cold-ac-lowered.html", img:null },
+    url:"https://smclassiccars.com/chevrolet/240160-1987-chevrolet-c10-shortbed-silverado-trim-350ci-dual-tanks-cold-ac-lowered.html",
+    img:PHOTOS.ck_sq_late, credit:"Wikimedia Commons" },
 
   { make:"Chevrolet", year:1983, model:"K5 Blazer Scottsdale", trim:"Frame-Off — LS Swap — All New AC",
     price:null, est_low:22000, est_high:50000, mi:"50 since restore", ac:"YES", running:"YES",
     cond:"Exceptional — Pro Build", loc:"Santa Fe, NM", src:"BlazerForSale",
     url:"https://www.blazerforsale.com/complete-frame-off-custom-1983-k5-scottsdale-in-santa-fe-nm/",
-    img:"https://www.blazerforsale.com/wp-content/uploads/2025/02/1983_scottsdale_santafe-nm.jpg" },
+    img:"https://www.blazerforsale.com/wp-content/uploads/2025/02/1983_scottsdale_santafe-nm.jpg",
+    credit:"BlazerForSale.com" },
 
-  // ── Ford / Facebook Marketplace ───────────────────────────────────────────────
+  // ── Ford / Facebook Marketplace ────────────────────────────────────
   { make:"Ford", year:1989, model:"Bronco", trim:"Custom 4x4",
     price:2500, est_low:5000, est_high:10000, mi:"123K", ac:"Unknown", running:"Unknown",
     cond:"Verify — Low Price", loc:"Albuquerque, NM", src:"Facebook Marketplace",
-    url:"https://www.facebook.com/marketplace/item/980245228190435/", img:null },
+    url:"https://www.facebook.com/marketplace/item/980245228190435/",
+    img:PHOTOS.bronco_full, credit:"Wikimedia Commons" },
 
   { make:"Ford", year:1988, model:"Bronco Wildtrak", trim:"4x4",
     price:2250, est_low:5000, est_high:10000, mi:"123K", ac:"Unknown", running:"Unknown",
     cond:"Verify — Lowest Price Found", loc:"Albuquerque, NM", src:"Facebook Marketplace",
-    url:"https://www.facebook.com/marketplace/item/1640014093820240/", img:null },
+    url:"https://www.facebook.com/marketplace/item/1640014093820240/",
+    img:PHOTOS.bronco_full, credit:"Wikimedia Commons" },
 
   { make:"Ford", year:1988, model:"F-150", trim:"",
     price:2000, est_low:4500, est_high:9000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Verify", loc:"Albuquerque, NM", src:"Facebook Marketplace",
-    url:"https://www.facebook.com/marketplace/item/3417818008381385/", img:null },
+    url:"https://www.facebook.com/marketplace/item/3417818008381385/",
+    img:PHOTOS.ford_f150, credit:"Wikimedia Commons" },
 
   { make:"Ford", year:1992, model:"Bronco Badlands", trim:"4x4",
     price:6500, est_low:5000, est_high:10000, mi:"188K", ac:"Unknown", running:"Unknown",
     cond:"High Mileage", loc:"Albuquerque, NM", src:"Facebook Marketplace",
-    url:"https://www.facebook.com/marketplace/item/2421395261613136/", img:null },
+    url:"https://www.facebook.com/marketplace/item/2421395261613136/",
+    img:PHOTOS.bronco_full, credit:"Wikimedia Commons" },
 
   { make:"Ford", year:1992, model:"Bronco XLT", trim:"4x4",
     price:7000, est_low:5000, est_high:10000, mi:"274K", ac:"Unknown", running:"Unknown",
     cond:"Very High Mileage", loc:"Albuquerque, NM", src:"Facebook Marketplace",
-    url:"https://www.facebook.com/marketplace/item/2026129791307029/", img:null },
+    url:"https://www.facebook.com/marketplace/item/2026129791307029/",
+    img:PHOTOS.bronco_full, credit:"Wikimedia Commons" },
 
-  // ── Ford / Craigslist ─────────────────────────────────────────────────────────
+  // ── Ford / Craigslist ──────────────────────────────────────────────
   { make:"Ford", year:1976, model:"Bronco (Early 1st Gen)", trim:"302 V8 4x4",
     price:29500, est_low:35000, est_high:75000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"1st Gen — Inspect Closely", loc:"Cedar Grove, NM", src:"Craigslist",
-    url:"https://albuquerque.craigslist.org/ctd/d/cedar-grove-1976-ford-bronco-302/7933062439.html", img:null },
+    url:"https://albuquerque.craigslist.org/ctd/d/cedar-grove-1976-ford-bronco-302/7933062439.html",
+    img:PHOTOS.bronco_1st, credit:"Wikimedia Commons" },
 
   { make:"Ford", year:1977, model:"F-150 4WD", trim:"400 V8",
     price:6000, est_low:10000, est_high:20000, mi:"Unknown", ac:"Unknown", running:"YES",
     cond:"Runs and Drives Well", loc:"Albuquerque, NM", src:"Craigslist",
-    url:"https://albuquerque.craigslist.org/cto/d/albuquerque-1977-ford-f150-4wd/7897719165.html", img:null },
+    url:"https://albuquerque.craigslist.org/cto/d/albuquerque-1977-ford-f150-4wd/7897719165.html",
+    img:PHOTOS.ford_f150, credit:"Wikimedia Commons" },
 
   { make:"Ford", year:1970, model:"F100 Ranger", trim:"",
     price:2500, est_low:5000, est_high:14000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Unknown — Inspect", loc:"Albuquerque, NM", src:"Craigslist",
-    url:"https://albuquerque.craigslist.org/ctd/d/albuquerque-1970-ford-f100-ranger-for/7935564068.html", img:null },
+    url:"https://albuquerque.craigslist.org/ctd/d/albuquerque-1970-ford-f100-ranger-for/7935564068.html",
+    img:PHOTOS.ford_f100, credit:"Wikimedia Commons" },
 
   { make:"Ford", year:1970, model:"F100 Ranger", trim:"2nd Listing",
     price:2500, est_low:5000, est_high:14000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Unknown — Inspect", loc:"Albuquerque, NM", src:"Craigslist",
-    url:"https://albuquerque.craigslist.org/ctd/d/albuquerque-1970-ford-f100-ranger-for/7934953471.html", img:null },
+    url:"https://albuquerque.craigslist.org/ctd/d/albuquerque-1970-ford-f100-ranger-for/7934953471.html",
+    img:PHOTOS.ford_f100, credit:"Wikimedia Commons" },
 
   { make:"Ford", year:1993, model:"Bronco XLT", trim:"4x4",
     price:12500, est_low:10000, est_high:18000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Good (assumed)", loc:"Albuquerque, NM", src:"Craigslist",
-    url:"https://albuquerque.craigslist.org/cto/d/albuquerque-1993-ford-bronco-xlt-4x4/7930408726.html", img:null },
+    url:"https://albuquerque.craigslist.org/cto/d/albuquerque-1993-ford-bronco-xlt-4x4/7930408726.html",
+    img:PHOTOS.bronco_full, credit:"Wikimedia Commons" },
 
-  // ── International Harvester ───────────────────────────────────────────────────
+  // ── International Harvester ────────────────────────────────────────
   { make:"International Harvester", year:1977, model:"Scout II", trim:"345 V8 — Has AC",
     price:6500, est_low:10000, est_high:22000, mi:"97,500", ac:"YES", running:"YES",
     cond:"Project — Restorable, Runs", loc:"Albuquerque, NM", src:"Facebook Marketplace",
     url:"https://www.facebook.com/marketplace/item/1346801333262998/",
-    img:"https://barnfinds.com/wp-content/uploads/2025/05/s5.jpg" },
+    img:"https://barnfinds.com/wp-content/uploads/2025/05/s5.jpg",
+    credit:"BarnFinds.com" },
 
   { make:"International Harvester", year:1974, model:"Scout II", trim:"4x4 — 4\" Lift",
     price:8000, est_low:10000, est_high:22000, mi:"Unknown", ac:"Unknown", running:"YES",
     cond:"Runs Good — Street or Highway", loc:"Las Cruces, NM (~3 hrs)", src:"Craigslist LC",
-    url:"https://albuquerque.craigslist.org/search/cta?query=international+scout", img:null },
+    url:"https://albuquerque.craigslist.org/search/cta?query=international+scout",
+    img:PHOTOS.scout_ii, credit:"Wikimedia Commons" },
 
   { make:"International Harvester", year:1963, model:"Scout 800", trim:"LT1 Restomod",
     price:7000, est_low:8000, est_high:16000, mi:"Unknown", ac:"Unknown", running:"YES",
     cond:"Restomod — Crate LT1 350hp", loc:"Albuquerque, NM", src:"Craigslist",
-    url:"https://albuquerque.craigslist.org/search/cta?query=international+scout", img:null },
+    url:"https://albuquerque.craigslist.org/search/cta?query=international+scout",
+    img:PHOTOS.scout_800, credit:"Wikimedia Commons" },
 
   { make:"International Harvester", year:1972, model:"Travelall", trim:"School Bus 4x4 — 3/4 Ton",
     price:10000, est_low:12000, est_high:28000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Unknown", loc:"Tijeras, NM", src:"Craigslist",
-    url:"https://albuquerque.craigslist.org/search/cta?query=travelall", img:null },
+    url:"https://albuquerque.craigslist.org/search/cta?query=travelall",
+    img:PHOTOS.travelall, credit:"Wikimedia Commons" },
 
   { make:"International Harvester", year:1973, model:"Travelall", trim:"Daily Driver — 8-Lug Axle",
     price:15500, est_low:12000, est_high:28000, mi:"Unknown", ac:"Unknown", running:"YES",
     cond:"Daily Driver", loc:"Rio Rancho, NM", src:"Craigslist",
-    url:"https://albuquerque.craigslist.org/search/cta?query=travelall", img:null },
+    url:"https://albuquerque.craigslist.org/search/cta?query=travelall",
+    img:PHOTOS.travelall, credit:"Wikimedia Commons" },
 
   { make:"International Harvester", year:1972, model:"Travelall 1010", trim:"392 V8 — Factory Air",
     price:null, est_low:12000, est_high:28000, mi:"80,492", ac:"YES", running:"YES",
     cond:"Running — Needs Road Prep", loc:"Albuquerque, NM", src:"DavidsClassicCars",
     url:"https://davidsclassiccars.com/international-harvester/433871-1972-international-travelall-1010-392-4bbl-automatic-factory-air-running.html",
-    img:"https://davidsclassiccars.com/images/full/1972-international-travelall-1010-392-4bbl-automatic-factory-air-running-1.jpg" },
+    img:"https://davidsclassiccars.com/images/full/1972-international-travelall-1010-392-4bbl-automatic-factory-air-running-1.jpg",
+    credit:"DavidsClassicCars.com" },
 
-  // ── GMC ───────────────────────────────────────────────────────────────────────
+  // ── GMC ────────────────────────────────────────────────────────────
   { make:"GMC", year:1971, model:"1500 Pickup", trim:"402 Big Block",
     price:8000, est_low:9000, est_high:18000, mi:"Unknown", ac:"Unknown", running:"Unknown",
     cond:"Unknown", loc:"Albuquerque, NM", src:"Craigslist",
-    url:"https://albuquerque.craigslist.org/search/cta?query=gmc+1971", img:null },
+    url:"https://albuquerque.craigslist.org/search/cta?query=gmc+1971",
+    img:PHOTOS.gmc_ck, credit:"Wikimedia Commons" },
 
   { make:"GMC", year:1986, model:"2500", trim:"Regular Cab Long Bed — ~1,200 Miles",
     price:6000, est_low:5000, est_high:12000, mi:"~1,200", ac:"Unknown", running:"Yes",
     cond:"Very Low Miles", loc:"Tijeras, NM", src:"Facebook Marketplace",
-    url:"https://www.facebook.com/marketplace/search/?query=1986+gmc+2500+tijeras", img:null },
+    url:"https://www.facebook.com/marketplace/search/?query=1986+gmc+2500+tijeras",
+    img:PHOTOS.gmc_ck, credit:"Wikimedia Commons" },
 ];
 
-// Deal rating logic
+// ─── Deal rating ──────────────────────────────────────────────────────
 function dealRating(price, low, high) {
   if (price == null) return { label:"Call for Price", cls:"deal-verify" };
   const mid = (low + high) / 2;
-  if (price <= low * 0.80) return { label:"🔥 Great Deal", cls:"deal-fire" };
-  if (price <= low)        return { label:"✅ Good Deal",  cls:"deal-good" };
-  if (price <= mid)        return { label:"✅ Fair",       cls:"deal-fair" };
-  if (price <= high)       return { label:"⚠️ High End",  cls:"deal-high" };
+  if (price <= low * 0.80) return { label:"🔥 Great Deal",   cls:"deal-fire" };
+  if (price <= low)        return { label:"✅ Good Deal",    cls:"deal-good" };
+  if (price <= mid)        return { label:"✅ Fair Price",   cls:"deal-fair" };
+  if (price <= high)       return { label:"⚠️ High End",    cls:"deal-high" };
   return                          { label:"🚩 Overpriced?", cls:"deal-over" };
 }
 
@@ -1213,24 +1352,34 @@ function fmtPrice(price) {
   return { text:`$${price.toLocaleString()}`, isCall:false };
 }
 
-function makeVisualClass(make) {
+function visualClass(make) {
   return { "Chevrolet":"chevy-visual","Ford":"ford-visual","International Harvester":"ih-visual","GMC":"gmc-visual" }[make] || "chevy-visual";
 }
 
-function chipClass(val) {
+function chipCls(val) {
   if (!val || val === "Unknown") return "";
-  if (val.includes("YES") || val.includes("Yes")) return "chip chip-yes";
-  if (val.includes("NO") || val.includes("No")) return "chip chip-no";
+  if (val.toUpperCase().includes("YES")) return "chip chip-yes";
+  if (val.toUpperCase().includes("NO"))  return "chip chip-no";
   return "chip";
 }
 
+let cardIndex = 0;
 function renderCard(t) {
-  const dr = dealRating(t.price, t.est_low, t.est_high);
-  const pf = fmtPrice(t.price);
+  cardIndex++;
+  const dr  = dealRating(t.price, t.est_low, t.est_high);
+  const pf  = fmtPrice(t.price);
   const hasLink = t.url && !t.url.includes("search/cta") && !t.url.includes("search?");
-  const visualClass = makeVisualClass(t.make);
-  const imgHtml = t.img
-    ? `<img src="${t.img}" alt="${t.year} ${t.make} ${t.model}" loading="lazy" onerror="this.parentNode.classList.add('${visualClass}');this.remove()">`
+  const vc  = visualClass(t.make);
+  const num = String(cardIndex).padStart(2,'0');
+
+  // Build photo HTML — real photo with vintage filter + fallback
+  const photoHtml = t.img
+    ? `<img
+         src="${t.img}"
+         alt="${t.year} ${t.make} ${t.model}"
+         loading="lazy"
+         onerror="this.parentElement.classList.add('${vc}');this.parentElement.innerHTML+='<div class=\\'card-visual-year\\'>${t.year}</div>';this.remove()"
+       >${t.credit ? `<span class="card-photo-credit">${t.credit}</span>` : ''}`
     : `<div class="card-visual-year">${t.year}</div>`;
 
   return `<article class="truck-card"
@@ -1238,14 +1387,15 @@ function renderCard(t) {
     data-deal="${dr.cls}"
     data-price="${t.price ?? 9999999}"
     data-year="${t.year}">
-    <div class="card-visual ${t.img ? '' : visualClass}">
-      ${imgHtml}
+    <div class="card-visual ${t.img ? '' : vc}">${photoHtml}
       <span class="card-make-badge">${t.make === "International Harvester" ? "IH Scout" : t.make}</span>
       <span class="card-source-badge">${t.src}</span>
     </div>
     <div class="card-body">
-      <div class="card-year-make">${t.year} · ${t.make}</div>
-      <div class="card-model">${t.model}${t.trim ? ` <span style="font-weight:400;color:var(--text-secondary)">— ${t.trim}</span>` : ''}</div>
+      <div class="card-catalog-no">No. ${num} — ${t.year}</div>
+      <div class="card-year-line">${t.make}</div>
+      <div class="card-model">${t.model}</div>
+      ${t.trim ? `<div class="card-trim">${t.trim}</div>` : ''}
       <div class="card-price-row">
         <span class="card-price${pf.isCall?' call':''}">${pf.text}</span>
         <span class="card-est">Est. $${t.est_low.toLocaleString()}–$${t.est_high.toLocaleString()}</span>
@@ -1253,19 +1403,20 @@ function renderCard(t) {
       <div class="deal-badge ${dr.cls}">${dr.label}</div>
       <div class="card-chips">
         ${t.mi && t.mi!=="Unknown" ? `<span class="chip">${t.mi} mi</span>` : ''}
-        ${t.ac && t.ac!=="Unknown" ? `<span class="${chipClass(t.ac)}">AC: ${t.ac}</span>` : ''}
-        ${t.running && t.running!=="Unknown" ? `<span class="${chipClass(t.running)}">Runs: ${t.running}</span>` : ''}
-        ${t.cond && t.cond!=="Unknown" ? `<span class="chip" title="${t.cond}">${t.cond.slice(0,22)}${t.cond.length>22?'…':''}</span>` : ''}
+        ${t.ac && t.ac!=="Unknown" ? `<span class="${chipCls(t.ac)}">AC: ${t.ac}</span>` : ''}
+        ${t.running && t.running!=="Unknown" ? `<span class="${chipCls(t.running)}">Runs: ${t.running}</span>` : ''}
+        ${t.cond && t.cond!=="Unknown" ? `<span class="chip">${t.cond.slice(0,26)}${t.cond.length>26?'…':''}</span>` : ''}
       </div>
     </div>
     <div class="card-footer">
       <span class="card-location">📍 ${t.loc}</span>
-      <a href="${t.url}" target="_blank" rel="noopener" class="card-cta${hasLink?'':' no-link'}">${hasLink?'View Listing':'Search Live'}</a>
+      <a href="${t.url}" target="_blank" rel="noopener"
+         class="card-cta${hasLink?'':' no-link'}">${hasLink?'View Listing':'Search Live'}</a>
     </div>
   </article>`;
 }
 
-// ── Filter + Sort state ──
+// ─── Filter + Sort ────────────────────────────────────────────────────
 let activeFilters = { make:"All", deal:"All" };
 let activeSort = "deal";
 
@@ -1280,44 +1431,38 @@ function setFilter(type, value, btn) {
     btn.classList.add("active");
   }
   applyFiltersAndSort();
-  // Show/hide IH callout
   const ihCallout = document.getElementById("ih-callout");
-  if (ihCallout) ihCallout.style.display = activeFilters.make === "International Harvester" || activeFilters.make === "All" ? "" : "none";
+  if (ihCallout) ihCallout.style.display =
+    (activeFilters.make === "International Harvester" || activeFilters.make === "All") ? "" : "none";
 }
 
 function applySort(val) { activeSort = val; applyFiltersAndSort(); }
 
 function applyFiltersAndSort() {
-  let cards = [...document.querySelectorAll(".truck-card")];
-  let visible = 0;
-
-  // Sort first
   const grid = document.getElementById("truck-grid");
   let sorted = [...TRUCKS];
   if (activeSort === "price-asc")  sorted.sort((a,b) => (a.price??9999999)-(b.price??9999999));
   if (activeSort === "price-desc") sorted.sort((a,b) => (b.price??-1)-(a.price??-1));
-  if (activeSort === "year-desc")  sorted.sort((a,b) => b.year-a.year);
-  if (activeSort === "year-asc")   sorted.sort((a,b) => a.year-b.year);
-  if (activeSort === "deal")       sorted.sort((a,b) => dealScore(a)-dealScore(b));
+  if (activeSort === "year-desc")  sorted.sort((a,b) => b.year - a.year);
+  if (activeSort === "year-asc")   sorted.sort((a,b) => a.year - b.year);
+  if (activeSort === "deal")       sorted.sort((a,b) => dealScore(a) - dealScore(b));
 
-  grid.innerHTML = sorted.map(renderCard).join("");
+  cardIndex = 0;
+  grid.innerHTML = sorted.map(t => {
+    const dr = dealRating(t.price, t.est_low, t.est_high);
+    const makePasses = activeFilters.make === "All" || t.make === activeFilters.make;
+    const dealPasses = activeFilters.deal === "All" || dr.cls === `deal-${activeFilters.deal}`;
+    if (!makePasses || !dealPasses) return '';
+    return renderCard(t);
+  }).join('');
 
-  // Filter
-  document.querySelectorAll(".truck-card").forEach(card => {
-    const makeOk = activeFilters.make === "All" || card.dataset.make === activeFilters.make;
-    const dealOk = activeFilters.deal === "All" || card.dataset.deal === `deal-${activeFilters.deal}`;
-    const show = makeOk && dealOk;
-    card.classList.toggle("hidden", !show);
-    if (show) visible++;
-  });
-
-  document.getElementById("result-count").innerHTML = `<strong>${visible}</strong> truck${visible===1?'':'s'} shown`;
+  const visible = grid.querySelectorAll(".truck-card").length;
+  document.getElementById("result-count").innerHTML = `<strong>${visible}</strong> trucks shown`;
+  document.getElementById("total-count").textContent = visible;
 }
 
-// ── Initial render ──
-document.getElementById("truck-grid").innerHTML = TRUCKS.sort((a,b)=>dealScore(a)-dealScore(b)).map(renderCard).join("");
-document.getElementById("result-count").innerHTML = `<strong>${TRUCKS.length}</strong> trucks shown`;
-document.getElementById("total-count").textContent = TRUCKS.length;
+// ─── Init ─────────────────────────────────────────────────────────────
+applyFiltersAndSort();
 </script>
 </body>
 </html>
