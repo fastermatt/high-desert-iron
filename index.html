@@ -830,6 +830,309 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HDI SCORE SYSTEM — Quick Chips, Featured Section, Score Badge
+═══════════════════════════════════════════════════════════════════════ */
+
+/* ── Quick Filter Chips ─────────────────────────────────────────────── */
+.quick-chips-bar {
+  background: var(--bg-dark);
+  border-bottom: 1px solid oklch(30% 0.025 55);
+}
+.quick-chips-inner {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 8px var(--sp-lg);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.quick-chips-label {
+  font-family: var(--font-cond);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-light-dim);
+  flex-shrink: 0;
+  margin-right: 4px;
+}
+.quick-chip {
+  font-family: var(--font-cond);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1.5px solid oklch(45% 0.025 60);
+  background: transparent;
+  color: var(--text-light-dim);
+  cursor: pointer;
+  transition: all 0.15s var(--ease-out);
+  white-space: nowrap;
+}
+.quick-chip:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+  background: oklch(68% 0.17 77 / 0.08);
+}
+.quick-chip.active-chip {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: oklch(18% 0.030 52);
+}
+
+/* ── HDI Score Badge ─────────────────────────────────────────────────── */
+.hdi-score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--font-cond);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 2px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-dark);
+  color: var(--text-secondary);
+}
+.hdi-score-badge.hdi-tier-great { background: oklch(48% 0.18 140); border-color: oklch(48% 0.18 140); color: #fff; }
+.hdi-score-badge.hdi-tier-good  { background: oklch(56% 0.16 148); border-color: oklch(56% 0.16 148); color: #fff; }
+.hdi-score-badge.hdi-tier-fair  { background: var(--amber-dim);     border-color: var(--amber-dim);    color: oklch(97% 0.010 78); }
+.hdi-score-badge.hdi-tier-low   { background: var(--rust);          border-color: var(--rust);         color: oklch(97% 0.008 36); }
+
+/* ── Featured Section ────────────────────────────────────────────────── */
+.featured-section {
+  margin: 0 0 var(--sp-lg) 0;
+  position: relative;
+}
+.featured-rule {
+  border: none;
+  border-top: 2px solid var(--border-dark);
+  margin: 0;
+}
+.featured-rule-bottom {
+  border: none;
+  border-top: 1px solid var(--border-rule);
+  margin: var(--sp-md) 0 0 0;
+}
+.featured-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-sm);
+  padding: var(--sp-sm) 0 var(--sp-md) 0;
+  flex-wrap: wrap;
+}
+.featured-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.featured-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.featured-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--sp-md);
+  align-items: start;
+}
+@media (max-width: 820px) {
+  .featured-grid { grid-template-columns: 1fr 1fr; }
+  .featured-grid .featured-card:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .featured-grid { grid-template-columns: 1fr; }
+  .featured-grid .featured-card:first-child { grid-column: unset; }
+}
+
+/* ── Featured Card ──────────────────────────────────────────────────── */
+.featured-card {
+  background: var(--bg-surface);
+  border: 2px solid var(--border-dark);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.18s var(--ease-out), box-shadow 0.18s var(--ease-out);
+}
+.featured-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px oklch(18% 0.030 52 / 0.16);
+}
+.featured-card:first-child .featured-card-photo {
+  height: 260px;
+}
+.featured-card-photo {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  background: var(--bg-elevated);
+}
+.featured-card-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.04) saturate(0.82) sepia(0.18);
+}
+.featured-card-photo .card-photo-no-img {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-style: italic;
+  color: var(--text-muted);
+  opacity: 0.45;
+}
+
+/* FEATURED stamp/banner */
+.featured-stamp {
+  position: absolute;
+  top: 18px;
+  right: -22px;
+  background: var(--rust);
+  color: oklch(97% 0.008 36);
+  font-family: var(--font-cond);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 4px 32px;
+  transform: rotate(12deg);
+  box-shadow: 0 2px 8px oklch(18% 0.030 52 / 0.25);
+  z-index: 5;
+  pointer-events: none;
+}
+/* First card (hero) gets a bigger ribbon */
+.featured-card:first-child .featured-stamp {
+  font-size: 0.65rem;
+  padding: 5px 38px;
+  top: 22px;
+  right: -24px;
+}
+
+/* Score + rank badge top-left */
+.featured-rank {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 5;
+}
+
+.featured-card-body {
+  padding: 14px 16px 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.featured-card-year-make {
+  font-family: var(--font-cond);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.featured-card-model {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+.featured-card:first-child .featured-card-model {
+  font-size: 1.4rem;
+}
+.featured-card-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+.featured-card-price {
+  font-family: var(--font-cond);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.featured-card-price.call {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+.featured-card-footer {
+  padding: 8px 16px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  gap: 8px;
+}
+.featured-card-loc {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.featured-view-btn {
+  font-family: var(--font-cond);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border: 1.5px solid var(--rust);
+  border-radius: 2px;
+  color: var(--rust);
+  text-decoration: none;
+  background: transparent;
+  transition: all 0.15s var(--ease-out);
+  flex-shrink: 0;
+}
+.featured-view-btn:hover {
+  background: var(--rust);
+  color: oklch(97% 0.008 36);
+}
+.featured-view-btn.no-link {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ── Cond Tier badge on main cards ──────────────────────────────────── */
+.cond-tier-badge {
+  display: inline-block;
+  font-family: var(--font-cond);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 2px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
 </style>
 </head>
 <body>
@@ -897,8 +1200,25 @@ footer {
   </div>
 </div>
 
+
+<!-- ── QUICK FILTER CHIPS ── -->
+<div class="quick-chips-bar" id="quick-chips-bar">
+  <div class="quick-chips-inner">
+    <span class="quick-chips-label">Quick</span>
+    <button class="quick-chip" id="chip-deals"       onclick="toggleChip('deals',this)">🔥 Best Deals</button>
+    <button class="quick-chip" id="chip-runs"        onclick="toggleChip('runs',this)">✅ Runs &amp; Drives</button>
+    <button class="quick-chip" id="chip-ac"          onclick="toggleChip('ac',this)">❄️ Has AC</button>
+    <button class="quick-chip" id="chip-abq"         onclick="toggleChip('abq',this)">📍 ABQ Area</button>
+    <button class="quick-chip" id="chip-squarebody"  onclick="toggleChip('squarebody',this)">🏔️ Square Body</button>
+  </div>
+</div>
+
 <!-- ── MAIN ── -->
 <main class="main-wrap">
+
+  
+  <!-- ── FEATURED / EDITOR'S PICKS ── -->
+  <div id="featured-section"></div>
 
   <!-- IH Callout -->
   <div class="ih-callout" id="ih-callout">
@@ -1456,6 +1776,223 @@ function renderCard(t) {
   </article>`;
 }
 
+
+// ═══════════════════════════════════════════════════════════════════════
+// HDI SCORE SYSTEM — hdiScore, condTier, quick chips, renderFeatured
+// ═══════════════════════════════════════════════════════════════════════
+
+// ─── HDI Score (0–100) ───────────────────────────────────────────────
+function hdiScore(truck) {
+  let score = 0;
+
+  // Deal vs market value (30 pts max)
+  if (truck.price == null) {
+    score += 15;
+  } else {
+    const low  = truck.est_low;
+    const high = truck.est_high;
+    const mid  = (low + high) / 2;
+    if      (truck.price <= low * 0.70) score += 30;
+    else if (truck.price <= low)        score += 24;
+    else if (truck.price <= mid)        score += 18;
+    else if (truck.price <= high)       score += 10;
+    else                                score +=  4;
+  }
+
+  // Running (20 pts)
+  const runVal = (truck.running || "").trim();
+  if      (runVal === "YES" || runVal === "Yes") score += 20;
+  else if (runVal === "NO"  || runVal === "No")  score +=  0;
+  else                                           score +=  8; // Unknown
+
+  // Mileage (20 pts)
+  const miRaw = (truck.mi || "Unknown").toString().replace(/[^0-9.K]/gi, "");
+  let miNum = null;
+  if (miRaw && miRaw.toLowerCase() !== "unknown" && miRaw !== "") {
+    const cleaned = miRaw.replace(/K$/i, "000").replace(/,/g, "");
+    miNum = parseFloat(cleaned);
+    if (miRaw.toLowerCase().endsWith("k")) miNum = parseFloat(miRaw) * 1000;
+  }
+  if      (miNum === null)       score +=  6;
+  else if (miNum < 30000)        score += 20;
+  else if (miNum < 60000)        score += 16;
+  else if (miNum < 100000)       score += 12;
+  else if (miNum < 150000)       score +=  8;
+  else if (miNum < 200000)       score +=  4;
+  else                           score +=  0;
+
+  // Condition (15 pts)
+  const condStr = ((truck.cond || "") + " " + (truck.trim || "")).toLowerCase();
+  if      (/restored|museum quality|frame.off|exceptional|pro build/i.test(condStr)) score += 15;
+  else if (/excellent|like new|very low miles|dealer/i.test(condStr))                score += 12;
+  else if (/fair|project|driver|barn find|restomod|survivor/i.test(condStr))         score +=  6;
+  else if (/not running|parts|body only|no drivetrain|no title/i.test(condStr))      score +=  2;
+  else if (/good/i.test(condStr))                                                    score += 12;
+  else                                                                                score +=  8;
+
+  // AC (8 pts)
+  const acVal = (truck.ac || "").trim();
+  if (acVal === "YES" || acVal === "Yes" || acVal.toUpperCase().startsWith("YES")) score += 8;
+
+  // Model rarity (7 pts)
+  const makeModel = ((truck.make || "") + " " + (truck.model || "") + " " + (truck.trim || "")).toLowerCase();
+  const yr = truck.year || 0;
+  if (
+    /k5 blazer/i.test(makeModel) ||
+    /scout/i.test(makeModel) ||
+    /travelall/i.test(makeModel) ||
+    ((/bronco/i.test(makeModel)) && yr >= 1966 && yr <= 1977) ||
+    /stepside/i.test(makeModel)
+  ) {
+    score += 7;
+  } else if (
+    /k10|k20|f.?100/i.test(makeModel) ||
+    (/bronco/i.test(makeModel) && yr > 1977)
+  ) {
+    score += 5;
+  } else if (/c10|c.?10|c20|f.?150|f.?250/i.test(makeModel)) {
+    score += 3;
+  } else {
+    score += 1;
+  }
+
+  return Math.min(100, score);
+}
+
+// Score tier label for badge styling
+function hdiScoreTier(score) {
+  if (score >= 70) return "hdi-tier-great";
+  if (score >= 55) return "hdi-tier-good";
+  if (score >= 40) return "hdi-tier-fair";
+  return "hdi-tier-low";
+}
+
+// ─── Condition Tier ──────────────────────────────────────────────────
+function condTier(truck) {
+  const c = ((truck.cond || "") + " " + (truck.trim || "")).toLowerCase();
+  if (/frame.off|museum quality|show truck|exceptional|pro build/i.test(c))              return "Restored";
+  if (/like new|very low miles|excellent|dealer build|dealer quality/i.test(c))          return "Excellent";
+  if (/not running|parts only|body only|no drivetrain|no title/i.test(c))                return "Parts/Shell";
+  if (/project|barn find|needs work|engine issues|needs engine|not road.ready/i.test(c)) return "Project";
+  const runVal = (truck.running || "").trim().toUpperCase();
+  const miRaw  = (truck.mi || "Unknown").toString();
+  const miNum  = parseFloat(miRaw.replace(/[^0-9]/g, "")) || null;
+  const isRunning = runVal === "YES" || runVal === "YES";
+  if (/good|restored|survivor|restomod|daily driver/i.test(c)) {
+    if (isRunning && miNum && miNum < 150000) return "Good Driver";
+    return "Driver";
+  }
+  if (isRunning) return "Driver";
+  return "Project";
+}
+
+// ─── Quick Filter Chips ───────────────────────────────────────────────
+let activeChips = new Set();
+
+function toggleChip(id, btn) {
+  if (activeChips.has(id)) {
+    activeChips.delete(id);
+    btn.classList.remove("active-chip");
+  } else {
+    activeChips.add(id);
+    btn.classList.add("active-chip");
+  }
+  applyFiltersAndSort();
+}
+
+function truckPassesChips(t) {
+  if (activeChips.size === 0) return true;
+  for (const chip of activeChips) {
+    if (chip === "deals") {
+      const dr = dealRating(t.price, t.est_low, t.est_high);
+      if (dr.cls !== "deal-fire" && dr.cls !== "deal-good") return false;
+    }
+    if (chip === "runs") {
+      const r = (t.running || "").trim();
+      if (r !== "YES" && r !== "Yes") return false;
+    }
+    if (chip === "ac") {
+      const a = (t.ac || "").trim().toUpperCase();
+      if (!a.startsWith("YES")) return false;
+    }
+    if (chip === "abq") {
+      const loc = (t.loc || "").toLowerCase();
+      if (!loc.includes("albuquerque") && !loc.includes("rio rancho")) return false;
+    }
+    if (chip === "squarebody") {
+      if (t.year < 1973 || t.year > 1987) return false;
+    }
+  }
+  return true;
+}
+
+// ─── Featured / Editor's Picks ────────────────────────────────────────
+function renderFeatured() {
+  const container = document.getElementById("featured-section");
+  if (!container) return;
+
+  // Top 3 by HDI score
+  const ranked = [...TRUCKS]
+    .map(t => ({ truck: t, score: hdiScore(t) }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3);
+
+  if (ranked.length === 0) { container.innerHTML = ""; return; }
+
+  function buildFeaturedCard(item, isHero) {
+    const t     = item.truck;
+    const score = item.score;
+    const tier  = hdiScoreTier(score);
+    const dr    = dealRating(t.price, t.est_low, t.est_high);
+    const pf    = fmtPrice(t.price);
+    const hasLink = t.url && !t.url.includes("search/cta") && !t.url.includes("search?");
+
+    const photoHtml = t.img
+      ? `<img src="${t.img}" alt="${t.year} ${t.make} ${t.model}" loading="lazy">`
+      : `<div class="card-photo-no-img">${t.year}</div>`;
+
+    const trimStr = t.trim ? `<div style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);letter-spacing:0.04em;margin-top:2px;">${t.trim.slice(0,40)}${t.trim.length>40?'…':''}</div>` : '';
+
+    return `<article class="featured-card">
+      <div class="featured-card-photo">
+        ${photoHtml}
+        <div class="featured-stamp">Featured</div>
+        <div class="featured-rank">
+          <span class="hdi-score-badge ${tier}">HDI ${score}</span>
+        </div>
+      </div>
+      <div class="featured-card-body">
+        <div class="featured-card-year-make">${t.year} · ${t.make === "International Harvester" ? "IH" : t.make}</div>
+        <div class="featured-card-model">${t.model}</div>
+        ${trimStr}
+        <div class="featured-card-meta-row">
+          <span class="featured-card-price${pf.isCall?' call':''}">${pf.text}</span>
+          <span class="deal-badge ${dr.cls}" style="font-size:0.62rem;padding:2px 7px;">${dr.label}</span>
+        </div>
+      </div>
+      <div class="featured-card-footer">
+        <span class="featured-card-loc">📍 ${t.loc}</span>
+        <a href="${t.url}" target="_blank" rel="noopener"
+           class="featured-view-btn${hasLink?'':' no-link'}">${hasLink?'View':'Search'}</a>
+      </div>
+    </article>`;
+  }
+
+  const cards = ranked.map((item, i) => buildFeaturedCard(item, i === 0)).join("");
+
+  container.innerHTML = `
+    <hr class="featured-rule">
+    <div class="featured-header">
+      <div>
+        <div class="featured-title">Editor's Picks — Best Buys This Week</div>
+      </div>
+      <div class="featured-subtitle">Ranked by HDI Score · Updated May 2026</div>
+    </div>
+    <div class="featured-grid">${cards}</div>
+    <hr class="featured-rule-bottom">
+  `;
+}
+
 // ─── Filter + Sort ────────────────────────────────────────────────────
 let activeFilters = { make:"All", deal:"All" };
 let activeSort = "deal";
@@ -1492,7 +2029,7 @@ function applyFiltersAndSort() {
     const dr = dealRating(t.price, t.est_low, t.est_high);
     const makePasses = activeFilters.make === "All" || t.make === activeFilters.make;
     const dealPasses = activeFilters.deal === "All" || dr.cls === `deal-${activeFilters.deal}`;
-    if (!makePasses || !dealPasses) return '';
+    if (!makePasses || !dealPasses || !truckPassesChips(t)) return '';
     return renderCard(t);
   }).join('');
 
@@ -1502,6 +2039,7 @@ function applyFiltersAndSort() {
 }
 
 // ─── Init ─────────────────────────────────────────────────────────────
+renderFeatured();
 applyFiltersAndSort();
 </script>
 </body>
